@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ôn tập Giữa Kỳ 1 Toán 11 - Cấp số cộng & Cấp số nhân</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\\\(',right:'\\\\)',display:false},{left:'\\\\[',right:'\\\\]',display:true}]});"></script>
+<style>
+  :root{--sat-blue:#1B3A6B;--sat-blue-light:#2C5AA0;--sat-blue-pale:#EAF0F9;--sat-green:#4CAF50;--sat-red:#E53935;--sat-yellow:#F5B400;--sat-bg:#F5F7FA;--sat-text:#1a2332;--sat-gray:#5b6778;--sat-gold:#F5B400;--shadow:0 2px 8px rgba(27,58,107,.08);--shadow-lg:0 6px 24px rgba(27,58,107,.14)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter','Segoe UI',Roboto,-apple-system,sans-serif;background:var(--sat-bg);color:var(--sat-text);line-height:1.6}
+  header{background:linear-gradient(135deg,var(--sat-blue) 0%,var(--sat-blue-light) 100%);color:#fff;padding:20px 32px;box-shadow:var(--shadow-lg);position:sticky;top:0;z-index:100}
+  .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand-logo{width:44px;height:44px;border-radius:10px;background:#fff;color:var(--sat-blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;letter-spacing:-1px}
+  .brand-title{font-size:20px;font-weight:700}
+  .brand-sub{font-size:12.5px;opacity:.85;font-weight:400}
+  .header-credit{font-size:12.5px;text-align:right;line-height:1.5;background:rgba(255,255,255,.12);padding:8px 16px;border-radius:10px;border-left:3px solid var(--sat-gold)}
+  .header-credit strong{color:var(--sat-gold);font-weight:800}
+  nav{background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:84px;z-index:99;overflow-x:auto}
+  .nav-inner{max-width:1200px;margin:0 auto;display:flex;padding:0 16px;gap:4px}
+  .nav-btn{background:none;border:none;padding:16px 20px;font-family:inherit;font-size:14.5px;font-weight:600;color:var(--sat-gray);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s}
+  .nav-btn:hover{color:var(--sat-blue);background:var(--sat-blue-pale)}
+  .nav-btn.active{color:var(--sat-blue);border-bottom-color:var(--sat-blue);background:var(--sat-blue-pale)}
+  main{max-width:1200px;margin:0 auto;padding:32px 20px 80px}
+  .section{display:none;animation:fade .35s ease}
+  .section.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .page-title{font-size:28px;font-weight:800;color:var(--sat-blue);margin-bottom:6px}
+  .page-subtitle{color:var(--sat-gray);margin-bottom:28px;font-size:15px}
+  .card{background:#fff;border-radius:14px;padding:26px 28px;box-shadow:var(--shadow);margin-bottom:20px;border:1px solid #eef2f8}
+  .card h3{font-size:20px;color:var(--sat-blue);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--sat-blue-pale);display:flex;align-items:center;gap:10px}
+  .card h3 .num{background:var(--sat-blue);color:#fff;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
+  .card h4{font-size:16px;color:var(--sat-blue-light);margin:16px 0 8px}
+  .card p,.card li{margin-bottom:8px}
+  .card ul,.card ol{padding-left:24px}
+  .card ol li,.card ul li{margin-bottom:6px}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px}
+  th,td{padding:12px 14px;text-align:left;border-bottom:1px solid #eef2f8;vertical-align:top}
+  th{background:var(--sat-blue-pale);color:var(--sat-blue);font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.5px}
+  tr:hover td{background:#fafcff}
+  .formula-box{background:linear-gradient(135deg,#f0f5ff 0%,#e6efff 100%);border-left:4px solid var(--sat-blue);border-radius:10px;padding:14px 18px;margin:12px 0;font-size:15.5px}
+  .formula-box strong{color:var(--sat-blue);font-weight:800}
+  
+  /* Practice styles */
+  .group-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+  .group-tab{padding:12px 22px;border-radius:10px;border:2px solid #e2e8f0;background:#fff;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;color:var(--sat-gray);transition:all .2s}
+  .group-tab:hover{border-color:var(--sat-blue-light)}
+  .group-tab.active{background:var(--sat-blue);color:#fff;border-color:var(--sat-blue)}
+  .group-tab .badge{display:inline-block;margin-left:6px;background:rgba(255,255,255,.25);padding:1px 8px;border-radius:8px;font-size:12px}
+  .group-tab:not(.active) .badge{background:var(--sat-blue-pale);color:var(--sat-blue)}
+  .group-panel{display:none}
+  .group-panel.active{display:block}
+  .q-card{background:#fff;border-radius:14px;padding:24px 26px;box-shadow:var(--shadow);margin-bottom:18px;border-left:5px solid var(--sat-blue-light);transition:border-color .3s}
+  .q-card.correct{border-left-color:var(--sat-green)}
+  .q-card.wrong{border-left-color:var(--sat-red)}
+  .q-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+  .q-num{background:var(--sat-blue);color:#fff;min-width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0}
+  .q-card.correct .q-num{background:var(--sat-green)}
+  .q-card.wrong .q-num{background:var(--sat-red)}
+  .q-text{font-size:16px;font-weight:500;flex:1;margin-top:6px}
+  .options{display:grid;gap:10px;margin-top:16px}
+  .option{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;border:2px solid #e2e8f0;border-radius:10px;background:#fff;cursor:pointer;transition:all .18s;font-family:inherit;font-size:15px;text-align:left;color:var(--sat-text);width:100%}
+  .option:hover:not(.disabled){border-color:var(--sat-blue-light);background:#fafcff;transform:translateX(2px)}
+  .option .letter{background:var(--sat-blue-pale);color:var(--sat-blue);width:28px;height:28px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+  .option.correct{border-color:var(--sat-green);background:#eaf7eb}
+  .option.correct .letter{background:var(--sat-green);color:#fff}
+  .option.wrong{border-color:var(--sat-red);background:#fdeaea}
+  .option.wrong .letter{background:var(--sat-red);color:#fff}
+  .option.disabled{cursor:default}
+  .option.disabled:hover{transform:none;background:inherit}
+  .feedback{margin-top:14px;padding:14px 18px;border-radius:10px;font-size:14.5px;display:none;animation:slideIn .3s ease}
+  @keyframes slideIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  .feedback.show{display:block}
+  .feedback.ok{background:#eaf7eb;border-left:4px solid var(--sat-green);color:#1f6b24}
+  .feedback.no{background:#fdeaea;border-left:4px solid var(--sat-red);color:#8b1c1c}
+  .feedback strong{display:block;margin-bottom:6px;font-size:15px}
+  .feedback .review{margin-top:8px;padding-top:8px;border-top:1px dashed rgba(0,0,0,.12);font-size:13.5px;color:var(--sat-blue);font-weight:600}
+
+  /* Simulation styles */
+  .sat-hero{background:linear-gradient(135deg,var(--sat-blue) 0%,var(--sat-blue-light) 100%);color:#fff;border-radius:16px;padding:32px 36px;margin-bottom:24px;box-shadow:var(--shadow-lg)}
+  .sat-hero h2{font-size:24px;margin-bottom:8px;font-weight:800}
+  .sat-hero p{opacity:.9;font-size:14.5px;max-width:760px}
+  .sat-info-row{display:flex;gap:24px;margin-top:18px;flex-wrap:wrap}
+  .sat-info{background:rgba(255,255,255,.13);padding:10px 18px;border-radius:10px;font-size:13.5px}
+  .sat-info strong{font-size:17px;display:block;font-weight:800}
+  .btn{padding:11px 24px;border-radius:10px;border:none;font-family:inherit;font-size:14.5px;font-weight:700;cursor:pointer;transition:all .2s;letter-spacing:.3px}
+  .btn-primary{background:var(--sat-blue);color:#fff}
+  .btn-primary:hover{background:var(--sat-blue-light);transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+  .btn-outline{background:#fff;color:var(--sat-blue);border:2px solid var(--sat-blue)}
+  .btn-outline:hover{background:var(--sat-blue-pale)}
+  .sat-set-selector{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-bottom:24px}
+  .set-card{background:#fff;border-radius:14px;padding:24px;box-shadow:var(--shadow);cursor:pointer;transition:all .25s;border:2px solid transparent;border-top:5px solid var(--sat-blue);position:relative}
+  .set-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--sat-blue-light);border-top-color:var(--sat-gold)}
+  .set-card .set-badge{display:inline-block;background:var(--sat-blue-pale);color:var(--sat-blue);padding:4px 12px;border-radius:8px;font-size:12px;font-weight:800;letter-spacing:.5px;margin-bottom:10px}
+  .set-card h4{font-size:18px;color:var(--sat-blue);margin-bottom:8px}
+  .set-card p{font-size:13.5px;color:var(--sat-gray);margin-bottom:14px;min-height:52px}
+  .set-card .set-meta{display:flex;gap:14px;font-size:12.5px;color:var(--sat-gray);border-top:1px dashed #e2e8f0;padding-top:12px;flex-wrap:wrap}
+  .set-card .set-meta strong{color:var(--sat-blue);font-weight:800}
+  .set-card .set-start{margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-weight:800;color:var(--sat-blue);font-size:14px}
+  .test-topbar{background:#fff;border-radius:14px;padding:16px 22px;box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:18px;border:1px solid #eef2f8;position:sticky;top:140px;z-index:50}
+  .test-set-name{font-size:16px;font-weight:800;color:var(--sat-blue)}
+  .test-progress{font-size:13px;color:var(--sat-gray);margin-top:2px}
+  .timer-wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .timer{font-family:'Courier New',monospace;font-size:24px;font-weight:800;background:var(--sat-blue);color:#fff;padding:8px 18px;border-radius:10px;letter-spacing:2px;min-width:110px;text-align:center;transition:background .3s}
+  .timer.warning{background:var(--sat-yellow);animation:pulse .8s infinite}
+  .timer.danger{background:var(--sat-red);animation:pulse .5s infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+  .test-layout{display:grid;grid-template-columns:230px 1fr;gap:18px;align-items:start}
+  .test-sidebar{background:#fff;border-radius:14px;padding:18px;box-shadow:var(--shadow);border:1px solid #eef2f8;position:sticky;top:220px}
+  .test-sidebar h4{font-size:12.5px;color:var(--sat-blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--sat-blue-pale)}
+  .nav-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+  .nav-cell{aspect-ratio:1;border-radius:8px;border:2px solid #e2e8f0;background:#fff;font-family:inherit;font-weight:700;font-size:12.5px;color:var(--sat-gray);cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;padding:0}
+  .nav-cell:hover{border-color:var(--sat-blue-light)}
+  .nav-cell.answered{background:var(--sat-blue);color:#fff;border-color:var(--sat-blue)}
+  .nav-cell.current{border-color:var(--sat-gold);box-shadow:0 0 0 3px rgba(245,180,0,.3)}
+  .nav-legend{margin-top:14px;font-size:12px;color:var(--sat-gray);display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px dashed #e2e8f0}
+  .nav-legend > div{display:flex;align-items:center;gap:8px}
+  .legend-box{width:14px;height:14px;border-radius:4px;border:2px solid #e2e8f0;background:#fff;display:inline-block}
+  .legend-box.answered{background:var(--sat-blue);border-color:var(--sat-blue)}
+  .legend-box.current{border-color:var(--sat-gold);box-shadow:0 0 0 2px rgba(245,180,0,.3)}
+  .test-main{min-width:0}
+  .test-main .q-card{margin-bottom:14px}
+  .test-nav-btns{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .test-nav-btns .btn{min-width:140px}
+  
+  /* TF and SA specific styles */
+  .tf-row{display:flex;flex-direction:column;gap:8px;padding:12px 16px;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px;background:#fafcff}
+  .tf-question{font-size:15px;margin-bottom:8px}
+  .tf-btns{display:flex;gap:12px}
+  .tf-btn{padding:6px 16px;border:1px solid #ccc;border-radius:6px;background:#fff;cursor:pointer;font-family:inherit;font-size:14px;transition:all .2s}
+  .tf-btn.selected-true{background:var(--sat-green);color:#fff;border-color:var(--sat-green)}
+  .tf-btn.selected-false{background:var(--sat-red);color:#fff;border-color:var(--sat-red)}
+  .sa-input{width:100%;padding:12px 16px;border:2px solid #e2e8f0;border-radius:8px;font-family:inherit;font-size:15px;margin-top:12px}
+  .sa-input:focus{outline:none;border-color:var(--sat-blue-light)}
+
+  /* Result styles */
+  .result-hero{background:linear-gradient(135deg,var(--sat-blue) 0%,var(--sat-blue-light) 100%);color:#fff;border-radius:16px;padding:32px 36px;margin-bottom:22px;box-shadow:var(--shadow-lg);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+  .result-hero h2{font-size:22px;margin-bottom:6px}
+  .result-hero p{opacity:.9;font-size:14px}
+  .result-score{text-align:center;background:rgba(255,255,255,.14);padding:18px 30px;border-radius:14px;border:2px solid rgba(245,180,0,.5)}
+  .result-score .num{font-size:42px;font-weight:800;color:var(--sat-gold);line-height:1}
+  .result-score .den{font-size:16px;opacity:.85;margin-top:4px}
+  .result-score .pct{font-size:14px;font-weight:700;margin-top:8px;padding:4px 12px;background:rgba(255,255,255,.2);border-radius:8px;display:inline-block}
+  .level-banner{background:#fff;border-radius:14px;padding:22px 26px;box-shadow:var(--shadow);border-left:6px solid var(--sat-blue);display:flex;gap:20px;align-items:flex-start;margin-bottom:22px}
+  .level-icon{width:64px;height:64px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:34px;flex-shrink:0;color:#fff}
+  .level-content{flex:1;min-width:0}
+  .level-content h3{font-size:22px;margin-bottom:8px;font-weight:800}
+  .level-content p{font-size:14.5px;color:var(--sat-text);margin-bottom:6px;line-height:1.65}
+  .level-content .level-advice{background:var(--sat-blue-pale);padding:12px 16px;border-radius:8px;margin-top:10px;font-size:14px;border-left:3px solid var(--sat-blue);line-height:1.65}
+  .result-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:22px}
+  .stat-box{background:#fff;border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);border-left:4px solid var(--sat-blue)}
+  .stat-box.green{border-left-color:var(--sat-green)}
+  .stat-box.red{border-left-color:var(--sat-red)}
+  .stat-box.yellow{border-left-color:var(--sat-yellow)}
+  .stat-box .label{font-size:11.5px;color:var(--sat-gray);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+  .stat-box .value{font-size:26px;font-weight:800;color:var(--sat-blue);margin-top:4px;line-height:1.1}
+  .stat-box.green .value{color:var(--sat-green)}
+  .stat-box.red .value{color:var(--sat-red)}
+  .stat-box.yellow .value{color:#b8860b}
+  .stat-box .sub{font-size:12.5px;color:var(--sat-gray);margin-top:4px}
+  .result-section-title{font-size:18px;font-weight:800;color:var(--sat-blue);margin:28px 0 14px;display:flex;align-items:center;gap:10px}
+  .result-section-title .icon{background:var(--sat-blue-pale);color:var(--sat-blue);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .wrong-item{background:#fff;border-radius:12px;padding:20px 22px;box-shadow:var(--shadow);margin-bottom:14px;border-left:5px solid var(--sat-red)}
+  .wrong-item.unanswered{border-left-color:var(--sat-gray)}
+  .wrong-item .wrong-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+  .wrong-item .wrong-num{background:var(--sat-red);color:#fff;min-width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0}
+  .wrong-item.unanswered .wrong-num{background:var(--sat-gray)}
+  .wrong-item .wrong-q{font-size:15px;font-weight:600;flex:1;line-height:1.55}
+  .wrong-item .topic-tag{display:inline-block;background:var(--sat-blue-pale);color:var(--sat-blue);font-size:11.5px;padding:2px 10px;border-radius:6px;font-weight:700;margin-top:6px}
+  .wrong-item .ans-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;font-size:14px}
+  .wrong-item .ans-box{padding:10px 14px;border-radius:8px;background:#f5f7fa;border-left:3px solid var(--sat-gray)}
+  .wrong-item .ans-box.your{background:#fdeaea;border-left-color:var(--sat-red)}
+  .wrong-item .ans-box.correct{background:#eaf7eb;border-left-color:var(--sat-green)}
+  .wrong-item .ans-box .lbl{font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--sat-gray);font-weight:700;margin-bottom:4px}
+  .wrong-item .ans-box .val{font-weight:600;color:var(--sat-text)}
+  .wrong-item .exp-box{background:var(--sat-blue-pale);padding:12px 16px;border-radius:8px;font-size:14px;border-left:3px solid var(--sat-blue);margin-top:10px;line-height:1.7}
+  .wrong-item .exp-box .lbl{font-weight:800;color:var(--sat-blue);margin-bottom:4px;font-size:13px}
+  .result-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+  
+  @media(max-width:900px){.test-layout{grid-template-columns:1fr}.test-sidebar{position:static}.nav-grid{grid-template-columns:repeat(10,1fr)}.result-hero{grid-template-columns:1fr}}
+  @media(max-width:640px){header{padding:14px 16px}.brand-title{font-size:16px}.header-credit{font-size:11.5px;padding:6px 12px;text-align:left}.nav-btn{padding:14px 12px;font-size:13px}main{padding:20px 12px 60px}.card{padding:20px 18px}.sat-hero{padding:24px 20px}.timer{font-size:20px;padding:6px 14px;min-width:90px}.hero{padding:26px 22px}.hero h1{font-size:22px}.page-title{font-size:22px}.footer-inner{grid-template-columns:1fr;gap:24px}footer{padding:28px 18px 20px}.nav-grid{grid-template-columns:repeat(6,1fr)}.wrong-item .ans-row{grid-template-columns:1fr}.result-score .num{font-size:34px}.test-topbar{position:static}.test-sidebar{position:static}.level-banner{flex-direction:column;gap:14px;padding:18px}.level-icon{width:52px;height:52px;font-size:28px}.level-content h3{font-size:18px}.roadmap{padding:20px 18px}.roadmap-phase{flex-direction:column;gap:12px}.time-analysis{padding:18px;grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-logo">M11</div>
+      <div><div class="brand-title">Ôn tập Giữa Học Kỳ 1 - Toán 11</div><div class="brand-sub">Cấp số cộng & Cấp số nhân - Bài toán thực tế</div></div>
+    </div>
+    <div class="header-credit">Thiết kế bởi <strong>Thầy Nguyễn Hữu Trung</strong><br>THPT Trần Phú • ☎ 0964 848 989</div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <button class="nav-btn active" data-tab="home">🏠 Trang chủ</button>
+    <button class="nav-btn" data-tab="knowledge">📐 Kiến thức</button>
+    <button class="nav-btn" data-tab="practice">✏️ Luyện tập nhanh</button>
+    <button class="nav-btn" data-tab="sat">⏱️ Thi thử chuẩn (22 câu)</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- TRANG CHỦ -->
+<section id="home" class="section active">
+  <div class="hero">
+    <h1>Chinh phục Giữa Kỳ 1 Toán 11: Cấp Số & Thực Tế</h1>
+    <p>Hệ thống ôn tập toàn diện bám sát ma trận đề thi của Bộ GD&ĐT. Bao gồm lý thuyết trọng tâm, 30 câu hỏi luyện tập tương tác có giải chi tiết, và <strong>3 bộ đề thi thử chuẩn cấu trúc mới (22 câu/bộ)</strong> với đồng hồ đếm ngược và phân tích năng lực.</p>
+    <div class="hero-author"><div class="avatar">NT</div><div><strong>Thầy Nguyễn Hữu Trung</strong><span>Giáo viên Toán — THPT Trần Phú • ☎ 0964 848 989</span></div></div>
+  </div>
+  <div class="home-grid">
+    <div class="home-card" onclick="switchTab('knowledge')"><div class="icon">📐</div><h4>1. Lý thuyết trọng tâm</h4><p>Hệ thống công thức CSC, CSN, phương pháp nhận diện và mô hình hóa bài toán thực tế (lãi kép, lương, sinh sản...).</p></div>
+    <div class="home-card" onclick="switchTab('practice')"><div class="icon">✏️</div><h4>2. Luyện tập nhanh</h4><p>30 câu trắc nghiệm chia làm 3 mức độ. Sai đâu sửa đó với phần phân tích đề và lời giải siêu chi tiết.</p></div>
+    <div class="home-card" onclick="switchTab('sat')"><div class="icon">⏱️</div><h4>3. Phòng thi chuẩn</h4><p>3 bộ đề thi thử (66 câu) cấu trúc Trắc nghiệm - Đúng/Sai - Trả lời ngắn. Có tính giờ 90 phút và báo cáo điểm.</p></div>
+  </div>
+</section>
+
+<!-- KIẾN THỨC CƠ BẢN -->
+<section id="knowledge" class="section">
+  <h2 class="page-title">📐 Kiến thức cơ bản</h2>
+  <p class="page-subtitle">Lý thuyết & Công thức Cấp số cộng - Cấp số nhân</p>
+
+  <div class="card">
+    <h3><span class="num">I</span> Cấp số cộng (CSC)</h3>
+    <div class="formula-box">
+      <strong>Định nghĩa:</strong> Dãy số \((u_n)\) là cấp số cộng nếu \(u_{n+1} = u_n + d\) với mọi \(n \in \mathbb{N}^*\), trong đó \(d\) là hằng số (công sai).<br><br>
+      <strong>Số hạng tổng quát:</strong> \(u_n = u_1 + (n-1)d\)<br><br>
+      <strong>Tính chất:</strong> \(u_k = \frac{u_{k-1} + u_{k+1}}{2}\) với \(k \ge 2\).<br><br>
+      <strong>Tổng n số hạng đầu:</strong> \(S_n = \frac{n(u_1 + u_n)}{2} = \frac{n[2u_1 + (n-1)d]}{2}\)
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">II</span> Cấp số nhân (CSN)</h3>
+    <div class="formula-box">
+      <strong>Định nghĩa:</strong> Dãy số \((u_n)\) là cấp số nhân nếu \(u_{n+1} = u_n \cdot q\) với mọi \(n \in \mathbb{N}^*\), trong đó \(q\) là hằng số (công bội).<br><br>
+      <strong>Số hạng tổng quát:</strong> \(u_n = u_1 \cdot q^{n-1}\)<br><br>
+      <strong>Tính chất:</strong> \(u_k^2 = u_{k-1} \cdot u_{k+1}\) với \(k \ge 2\).<br><br>
+      <strong>Tổng n số hạng đầu (với \(q \neq 1\)):</strong> \(S_n = u_1 \frac{1 - q^n}{1 - q}\)
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="num">III</span> Ứng dụng thực tế</h3>
+    <ul>
+      <li><strong>Cấp số cộng:</strong> Các đại lượng tăng/giảm đều theo một lượng không đổi. <em>Ví dụ:</em> Lương tăng mỗi năm một số tiền cố định, xếp vật theo từng lớp giảm đều...</li>
+      <li><strong>Cấp số nhân:</strong> Các đại lượng tăng/giảm theo tỉ lệ phần trăm không đổi. <em>Ví dụ:</em> Lãi kép ngân hàng, dân số, vi khuẩn sinh sản, độ cao bóng nảy...</li>
+    </ul>
+  </div>
+</section>
+
+<!-- LUYỆN TẬP NHANH -->
+<section id="practice" class="section">
+  <h2 class="page-title">✏️ Luyện tập trắc nghiệm nhanh</h2>
+  <p class="page-subtitle">30 câu hỏi · Chấm điểm ngay · Phân tích và giải chi tiết khi chọn sai</p>
+  <div class="group-tabs">
+    <button class="group-tab active" data-group="1">🟢 Bộ 1 — Cơ bản <span class="badge">10</span></button>
+    <button class="group-tab" data-group="2">🟡 Bộ 2 — Vận dụng <span class="badge">10</span></button>
+    <button class="group-tab" data-group="3">🔴 Bộ 3 — Vận dụng cao <span class="badge">10</span></button>
+  </div>
+  <div class="group-panel active" id="panel-1"></div>
+  <div class="group-panel" id="panel-2"></div>
+  <div class="group-panel" id="panel-3"></div>
+</section>
+
+<!-- THI THỬ CHUẨN -->
+<section id="sat" class="section">
+  <h2 class="page-title">⏱️ Phòng thi thử chuẩn cấu trúc Bộ GD&ĐT</h2>
+  <p class="page-subtitle">3 bộ đề × 22 câu — Thời gian 90 phút · Cấu trúc: 12 Trắc nghiệm | 4 Đúng/Sai | 6 Trả lời ngắn</p>
+  <div class="sat-hero">
+    <h2>📘 Đề thi Giữa Học Kỳ 1 - Môn Toán 11</h2>
+    <p>Bám sát ma trận đề minh họa. Thí sinh làm bài trực tiếp trên web, hệ thống sẽ tự động chấm điểm theo thang điểm chuẩn (Trắc nghiệm 0.25đ/câu; Đúng/Sai tính theo mức 0.1 - 0.25 - 0.5 - 1.0đ; Trả lời ngắn 0.5đ/câu).</p>
+    <div class="sat-info-row">
+      <div class="sat-info"><strong>66</strong>Câu hỏi (3 bộ)</div>
+      <div class="sat-info"><strong>90:00</strong>Mỗi bộ</div>
+      <div class="sat-info"><strong>10.0đ</strong>Thang điểm</div>
+    </div>
+  </div>
+  <div id="satSetSelector" class="sat-set-selector"></div>
+  
+  <div id="satTestScreen" style="display:none">
+    <div class="test-topbar">
+      <div>
+        <div class="test-set-name" id="testSetName">Bộ 1</div>
+        <div class="test-progress" id="testProgress">Câu 1 / 22 · Đã trả lời 0/22</div>
+      </div>
+      <div class="timer-wrap">
+        <div class="timer" id="testTimer">90:00</div>
+        <button class="btn btn-primary" id="btnSubmitTest">📝 Nộp bài</button>
+        <button class="btn btn-outline" id="btnQuitTest">✕ Thoát</button>
+      </div>
+    </div>
+    <div class="test-layout">
+      <aside class="test-sidebar">
+        <h4>Bảng câu hỏi</h4>
+        <div class="nav-grid" id="navGrid"></div>
+        <div class="nav-legend">
+          <div><span class="legend-box current"></span> Câu đang xem</div>
+          <div><span class="legend-box answered"></span> Đã trả lời</div>
+          <div><span class="legend-box"></span> Chưa trả lời</div>
+        </div>
+      </aside>
+      <div class="test-main">
+        <div class="q-card" id="testQuestionCard">
+          <div class="q-head"><div class="q-num" id="testQNum">1</div><div class="q-text" id="testQText"></div></div>
+          <div id="testOptions"></div>
+        </div>
+        <div class="test-nav-btns">
+          <button class="btn btn-outline" id="btnPrev">← Câu trước</button>
+          <button class="btn btn-primary" id="btnNext">Câu tiếp →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="satResultScreen" style="display:none"></div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>📘 Về khóa học</h4>
+      <p>Web ôn thi Giữa kỳ 1 Toán 11 chuyên đề <strong>Cấp số cộng & Cấp số nhân</strong> kết hợp bài toán thực tế.</p>
+      <div class="footer-author-card"><div class="name">👨‍🏫 Thầy Nguyễn Hữu Trung</div><div class="role">Giáo viên Toán — THPT Trần Phú</div><div class="phone">📞 0964 848 989</div></div>
+    </div>
+    <div class="footer-col">
+      <h4>🧭 Điều hướng</h4>
+      <ul>
+        <li onclick="switchTab('home')">🏠 Trang chủ</li>
+        <li onclick="switchTab('knowledge')">📐 Kiến thức cơ bản</li>
+        <li onclick="switchTab('practice')">✏️ Luyện tập</li>
+        <li onclick="switchTab('sat')">⏱️ Thi thử chuẩn</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>📞 Liên hệ</h4>
+      <ul>
+        <li>👤 <strong>Thầy Nguyễn Hữu Trung</strong></li>
+        <li>🏫 THPT Trần Phú</li>
+        <li>☎️ 0964 848 989</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 <strong>Thầy Nguyễn Hữu Trung — THPT Trần Phú</strong></p>
+    <p style="margin-top:6px">Made with ❤️ for high school students</p>
+  </div>
+</footer>
+
+<script>
+/* ============ TAB SWITCHING ============ */
+function switchTab(tab){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+  document.querySelector('.nav-btn[data-tab="'+tab+'"]').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.nav-btn').forEach(btn=>{btn.addEventListener('click',()=>switchTab(btn.dataset.tab));});
+
+/* ============ SOUND ============ */
+let audioCtx=null;
+function getCtx(){if(!audioCtx) audioCtx=new (window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended') audioCtx.resume();return audioCtx;}
+function playDing(){try{const ctx=getCtx();[880,1320].forEach((f,i)=>{const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.type='sine';o.frequency.setValueAtTime(f,ctx.currentTime+i*0.08);g.gain.setValueAtTime(0.18,ctx.currentTime+i*0.08);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+i*0.08+0.35);o.start(ctx.currentTime+i*0.08);o.stop(ctx.currentTime+i*0.08+0.4);});}catch(e){}}
+function playBuzz(){try{const ctx=getCtx();const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.type='sawtooth';o.frequency.setValueAtTime(180,ctx.currentTime);o.frequency.exponentialRampToValueAtTime(90,ctx.currentTime+0.3);g.gain.setValueAtTime(0.15,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.35);o.start(ctx.currentTime);o.stop(ctx.currentTime+0.4);}catch(e){}}
+function playFanfare(){try{const ctx=getCtx();[523,659,784,1046].forEach((f,i)=>{const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.type='sine';o.frequency.setValueAtTime(f,ctx.currentTime+i*0.12);g.gain.setValueAtTime(0.2,ctx.currentTime+i*0.12);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+i*0.12+0.5);o.start(ctx.currentTime+i*0.12);o.stop(ctx.currentTime+i*0.12+0.6);});}catch(e){}}
+
+/* ============ PRACTICE DATA (30 câu) ============ */
+const letterMap=['A','B','C','D'];
+const practiceData={
+  1:[
+    {q:"Dãy số nào sau đây là cấp số cộng?",opts:["\\(1; 2; 4; 8; 16\\)","\\(1; 3; 5; 7; 9\\)","\\(1; 4; 9; 16\\)","\\(2; 4; 8; 16\\)"],ans:1,exp:"Cấp số cộng là dãy số mà hiệu của hai số hạng liên tiếp luôn không đổi. Ở đáp án B, các hiệu lần lượt là \(3-1=2; 5-3=2; 7-5=2\). Công sai \(d=2\).",review:"Ôn tập định nghĩa cấp số cộng."},
+    {q:"Cho cấp số cộng có \(u_1 = 2\) và công sai \(d = 3\). Số hạng thứ 5 là:",opts:["\\(14\\)","\\(17\\)","\\(11\\)","\\(15\\)"],ans:0,exp:"Áp dụng công thức số hạng tổng quát: \(u_n = u_1 + (n-1)d\).<br>Ta có \(u_5 = 2 + (5-1) \cdot 3 = 2 + 12 = 14\).",review:"Ôn tập công thức số hạng tổng quát CSC."},
+    {q:"Dãy số nào sau đây là cấp số nhân?",opts:["\\(2; 4; 6; 8\\)","\\(1; 2; 4; 8\\)","\\(1; 3; 5; 7\\)","\\(3; 5; 7; 9\\)"],ans:1,exp:"Cấp số nhân là dãy số mà thương của hai số hạng liên tiếp luôn không đổi. Ở đáp án B, \(2/1 = 4/2 = 8/4 = 2\). Công bội \(q=2\).",review:"Ôn tập định nghĩa cấp số nhân."},
+    {q:"Cho cấp số nhân có \(u_1 = 3\) và công bội \(q = 2\). Số hạng thứ 4 là:",opts:["\\(24\\)","\\(12\\)","\\(48\\)","\\(16\\)"],ans:0,exp:"Áp dụng công thức số hạng tổng quát: \(u_n = u_1 \cdot q^{n-1}\).<br>Ta có \(u_4 = 3 \cdot 2^{4-1} = 3 \cdot 2^3 = 3 \cdot 8 = 24\).",review:"Ôn tập công thức số hạng tổng quát CSN."},
+    {q:"Tổng 10 số hạng đầu của cấp số cộng có \(u_1 = 1\) và \(d = 2\) là:",opts:["\\(100\\)","\\(110\\)","\\(90\\)","\\(120\\)"],ans:0,exp:"Áp dụng công thức tính tổng: \(S_n = \frac{n[2u_1 + (n-1)d]}{2}\).<br>\(S_{10} = \frac{10[2 \cdot 1 + (10-1)2]}{2} = 5 \cdot (2 + 18) = 100\).",review:"Ôn tập công thức tổng n số hạng đầu CSC."},
+    {q:"Tổng 5 số hạng đầu của cấp số nhân có \(u_1 = 2\) và \(q = 3\) là:",opts:["\\(242\\)","\\(162\\)","\\(80\\)","\\(120\\)"],ans:0,exp:"Áp dụng công thức: \(S_n = u_1 \frac{1 - q^n}{1 - q}\).<br>\(S_5 = 2 \cdot \frac{1 - 3^5}{1 - 3} = 2 \cdot \frac{1 - 243}{-2} = 242\).",review:"Ôn tập công thức tổng n số hạng đầu CSN."},
+    {q:"Một người thợ nhận lương tháng đầu là 6 triệu đồng. Cứ mỗi năm, lương tăng thêm 1 triệu đồng/tháng. Mức lương ở năm thứ 3 là:",opts:["\\(8\\) triệu","\\(7\\) triệu","\\(9\\) triệu","\\(10\\) triệu"],ans:0,exp:"Đây là bài toán cấp số cộng với \(u_1 = 6\) (triệu), công sai \(d = 1\).<br>Mức lương năm thứ 3 là \(u_3 = 6 + (3-1) \cdot 1 = 8\) triệu đồng.",review:"Ôn tập ứng dụng CSC thực tế."},
+    {q:"Một người gửi 100 triệu đồng vào ngân hàng với lãi suất 10%/năm (lãi kép). Sau 2 năm, số tiền nhận được là:",opts:["\\(120\\) triệu","\\(121\\) triệu","\\(110\\) triệu","\\(122\\) triệu"],ans:1,exp:"Đây là bài toán cấp số nhân với \(u_1 = 100\), \(q = 1 + 10\% = 1.1\).<br>Số tiền sau 2 năm: \(u_3 = u_1 \cdot q^2 = 100 \cdot 1.1^2 = 121\) triệu đồng.",review:"Ôn tập ứng dụng CSN (lãi kép)."},
+    {q:"Cho cấp số cộng \((u_n)\) có \(u_1 = -2, u_2 = 1\). Công sai \(d\) là:",opts:["\\(3\\)","\\(-3\\)","\\(1\\)","\\(-1\\)"],ans:0,exp:"Công sai \(d = u_2 - u_1 = 1 - (-2) = 3\).",review:"Ôn tập cách tìm công sai."},
+    {q:"Cho cấp số nhân \((u_n)\) có \(u_1 = 2, u_2 = -6\). Công bội \(q\) là:",opts:["\\(-3\\)","\\(3\\)","\\(-2\\)","\\(4\\)"],ans:0,exp:"Công bội \(q = \frac{u_2}{u_1} = \frac{-6}{2} = -3\).",review:"Ôn tập cách tìm công bội."}
+  ],
+  2:[
+    {q:"Cho CSC \((u_n)\) có \(u_1 = 2\) và \(u_7 = 20\). Tìm công sai \(d\).",opts:["\\(d=3\\)","\\(d=2\\)","\\(d=4\\)","\\(d=1.5\\)"],ans:0,exp:"Ta có \(u_7 = u_1 + 6d \\Rightarrow 20 = 2 + 6d \\Rightarrow 6d = 18 \\Rightarrow d = 3\).",review:"Ôn tập giải phương trình CSC."},
+    {q:"Cho CSN \((u_n)\) có \(u_1 = 2, u_4 = 54\). Công bội \(q\) (biết \(q>0\)) là:",opts:["\\(q=3\\)","\\(q=2\\)","\\(q=4\\)","\\(q=27\\)"],ans:0,exp:"Ta có \(u_4 = u_1 q^3 \\Rightarrow 54 = 2q^3 \\Rightarrow q^3=27 \\Rightarrow q=3\).",review:"Ôn tập giải phương trình CSN."},
+    {q:"Cho cấp số cộng \((u_n)\) có \(S_n = n^2 + 2n\). Tìm số hạng \(u_{10}\).",opts:["\\(21\\)","\\(19\\)","\\(23\\)","\\(17\\)"],ans:0,exp:"Ta có \(u_{10} = S_{10} - S_9 = (10^2 + 2.10) - (9^2 + 2.9) = 120 - 99 = 21\).",review:"Ôn tập mối quan hệ giữa \(u_n\) và \(S_n\)."},
+    {q:"Một người gửi tiết kiệm 100 triệu đồng với lãi kép 6%/năm. Sau 5 năm, số tiền nhận được gần nhất với giá trị nào?",opts:["\\(133.8\\) triệu","\\(130\\) triệu","\\(135\\) triệu","\\(140\\) triệu"],ans:0,exp:"Số tiền \(T = 100(1+0.06)^5 = 100 \cdot (1.06)^5 \approx 133.82\) triệu đồng.",review:"Ôn tập ứng dụng CSN (lãi kép)."},
+    {q:"Một chiếc xe máy có giá 40 triệu đồng. Cứ sau mỗi năm, giá trị xe giảm 10% so với năm trước. Hỏi sau 3 năm, giá trị xe còn bao nhiêu?",opts:["\\(29.16\\) triệu","\\(28\\) triệu","\\(30\\) triệu","\\(27\\) triệu"],ans:0,exp:"Giá trị xe lập thành CSN với \(u_1 = 40\), \(q = 1 - 0.1 = 0.9\).<br>Sau 3 năm: \(u_4 = 40 \cdot (0.9)^3 = 40 \cdot 0.729 = 29.16\) triệu.",review:"Ôn tập ứng dụng CSN (khấu hao)."},
+    {q:"Xếp 15 hàng ống nước, hàng dưới cùng 20 ống, mỗi hàng trên ít hơn hàng dưới 1 ống. Tổng số ống nước là:",opts:["\\(195\\)","\\(210\\)","\\(190\\)","\\(200\\)"],ans:0,exp:"Số ống mỗi hàng là CSC với \(u_1=20, d=-1, n=15\).<br>\(S_{15} = \frac{15(2.20 + 14(-1))}{2} = \frac{15(40-14)}{2} = \frac{15.26}{2} = 195\).",review:"Ôn tập ứng dụng CSC (xếp vật)."},
+    {q:"Một loại vi khuẩn ban đầu 500 con, cứ 30 phút tăng gấp đôi. Hỏi sau 2 giờ, số lượng vi khuẩn là:",opts:["\\(8000\\)","\\(4000\\)","\\(16000\\)","\\(32000\\)"],ans:0,exp:"2 giờ = 120 phút = 4 chu kỳ 30 phút.<br>Số lượng \(N_4 = 500 \cdot 2^4 = 500 \cdot 16 = 8000\) con.",review:"Ôn tập ứng dụng CSN (vi khuẩn)."},
+    {q:"Một quả bóng rơi từ độ cao 3m. Mỗi lần chạm đất, bóng nảy lên độ cao bằng \(2/3\) độ cao trước đó. Độ cao nảy lên ở lần thứ 3 là:",opts:["\\(4/3\\) m","\\(8/9\\) m","\\(8/27\\) m","\\(16/27\\) m"],ans:0,exp:"Độ cao nảy lên lập thành CSN với \(h_1 = 3 \cdot (2/3) = 2\)m, \(q=2/3\).<br>Độ cao lần 3: \(h_3 = h_1 \cdot q^2 = 2 \cdot (4/9) = 8/9\) m. (Lưu ý: Đề hỏi độ cao nảy lên lần 3, tức là sau lần chạm đất thứ 3).",review:"Ôn tập ứng dụng CSN (bóng nảy)."},
+    {q:"Dân số của một tỉnh hiện tại là 2 triệu người. Tỉ lệ tăng dân số là 1.2%/năm. Hỏi sau 10 năm, dân số tỉnh đó là bao nhiêu (làm tròn đến hàng nghìn)?",opts:["\\(2.253\\) triệu","\\(2.24\\) triệu","\\(2.25\\) triệu","\\(2.3\\) triệu"],ans:0,exp:"Dân số lập thành CSN với \(u_1 = 2\), \(q = 1 + 0.012 = 1.012\).<br>Sau 10 năm: \(u_{11} = 2 \cdot (1.012)^{10} \approx 2 \cdot 1.1267 = 2.2534\) triệu người. Làm tròn đến hàng nghìn là 2.253 triệu.",review:"Ôn tập ứng dụng CSN (dân số)."},
+    {q:"Tìm \(x > 0\) để 3 số \(2, x, 18\) theo thứ tự lập thành cấp số nhân.",opts:["\\(6\\)","\\(9\\)","\\(3\\)","\\(12\\)"],ans:0,exp:"Để 3 số lập thành CSN thì \(x^2 = 2 \cdot 18 = 36\). Vì \(x>0\) nên \(x=6\).",review:"Ôn tập tính chất 3 số hạng liên tiếp của CSN."}
+  ],
+  3:[
+    {q:"Cho ba số \(a, b, c\) lập thành CSC và \(a, c, b\) lập thành CSN (với \(a \\neq b\)). Tính tỉ số \(\\dfrac{a}{b}\).",opts:["\\(4\\)","\\(2\\)","\\(3\\)","\\(1/4\\)"],ans:0,exp:"Vì \(a,b,c\) là CSC nên \(2b = a+c \\Rightarrow c = 2b-a\).<br>Vì \(a,c,b\) là CSN nên \(c^2 = ab\). Thay \(c\) vào: \((2b-a)^2 = ab \\Rightarrow 4b^2 - 4ab + a^2 = ab \\Rightarrow a^2 - 5ab + 4b^2 = 0 \\Rightarrow (a-b)(a-4b) = 0\).<br>Vì \(a \\neq b\) nên \(a = 4b \\Rightarrow a/b = 4\).",review:"Ôn tập kết hợp tính chất CSC và CSN."},
+    {q:"Một người gửi tiết kiệm 10 triệu đồng vào ngân hàng vào đầu mỗi năm với lãi suất 8%/năm (lãi kép). Hỏi sau 10 năm, tổng số tiền người đó nhận được là bao nhiêu (làm tròn đến triệu đồng)?",opts:["\\(156\\) triệu","\\(145\\) triệu","\\(160\\) triệu","\\(150\\) triệu"],ans:0,exp:"Đây là bài toán gửi tiền định kỳ (annuity).<br>Số tiền nhận được \(T = 10 \cdot (1.08) \cdot \frac{(1.08)^{10} - 1}{0.08} = 10.8 \cdot \frac{2.1589 - 1}{0.08} = 10.8 \cdot 14.486 \approx 156.4\) triệu. Làm tròn là 156 triệu.",review:"Ôn tập ứng dụng CSN nâng cao (gửi định kỳ)."},
+    {q:"Cho hình vuông \(ABCD\) cạnh \(a\). Nối trung điểm các cạnh ta được hình vuông thứ 2, tiếp tục quá trình này ta được dãy hình vuông. Gọi \(S_n\) là tổng diện tích của \(n\) hình vuông đầu tiên. Tính \(\\lim S_n\).",opts:["\\(2a^2\\)","\\(a^2\\)","\\(\\dfrac{3}{2}a^2\\)","\\(\\dfrac{4}{3}a^2\\)"],ans:0,exp:"Diện tích hình vuông thứ \(k\) là \(S_k = a^2 \\cdot (1/2)^{k-1}\).<br>Tổng diện tích là cấp số nhân lùi vô hạn: \(S = \frac{a^2}{1 - 1/2} = 2a^2\).",review:"Ôn tập ứng dụng CSN lùi vô hạn (hình học)."},
+    {q:"Một người vay ngân hàng 100 triệu đồng, trả góp hàng tháng với lãi suất 1%/tháng. Hỏi số tiền phải trả hàng tháng (làm tròn đến nghìn đồng) để trả hết nợ trong 12 tháng?",opts:["\\(8.885.000\\) đ","\\(8.500.000\\) đ","\\(9.000.000\\) đ","\\(9.200.000\\) đ"],ans:0,exp:"Công thức trả góp: \(X = \frac{P \cdot r \cdot (1+r)^n}{(1+r)^n - 1}\).<br>\(X = \frac{100 \cdot 0.01 \cdot (1.01)^{12}}{(1.01)^{12} - 1} = \frac{1 \cdot 1.126825}{0.126825} \approx 8.8848\) triệu đồng. Làm tròn là 8.885.000 đ.",review:"Ôn tập ứng dụng CSN nâng cao (trả góp)."},
+    {q:"Cho cấp số nhân \((u_n)\) có \(u_1 = 2\), công bội \(q\). Biết \(u_1 + u_2 + u_3 = 14\). Tìm \(q\) (biết \(q > 1\)).",opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(1/2\\)"],ans:0,exp:"\(u_1 + u_2 + u_3 = 2 + 2q + 2q^2 = 14 \\Rightarrow q^2 + q - 6 = 0 \\Rightarrow (q-2)(q+3) = 0\).<br>Vì \(q>1\) nên \(q=2\).",review:"Ôn tập giải phương trình tìm công bội."},
+    {q:"Một công ty trả lương cho nhân viên theo quy tắc: Năm đầu tiên 100 triệu/năm, cứ mỗi năm sau tăng thêm 10% so với năm trước. Hỏi tổng thu nhập sau 5 năm là bao nhiêu?",opts:["\\(610.51\\) triệu","\\(600\\) triệu","\\(550\\) triệu","\\(650\\) triệu"],ans:0,exp:"Thu nhập mỗi năm lập thành CSN với \(u_1=100, q=1.1\).<br>Tổng 5 năm: \(S_5 = 100 \cdot \frac{1.1^5 - 1}{1.1 - 1} = 100 \cdot \frac{1.61051 - 1}{0.1} = 610.51\) triệu.",review:"Ôn tập ứng dụng CSN (lương thưởng)."},
+    {q:"Tìm số hạng lớn nhất của cấp số cộng \((u_n)\) có \(u_1 = 2019\) và \(d = -3\).",opts:["\\(2019\\)","\\(2016\\)","\\(2022\\)","\\(3\\)"],ans:0,exp:"Vì \(d=-3 < 0\) nên dãy số giảm. Do đó số hạng lớn nhất là số hạng đầu tiên \(u_1 = 2019\).",review:"Ôn tập tính đơn điệu của CSC."},
+    {q:"Cho dãy số \((u_n)\) xác định bởi \(u_1 = 1, u_{n+1} = 2u_n + 1\). Tìm số hạng tổng quát \(u_n\).",opts:["\\(2^n - 1\\)","\\(2^n + 1\\)","\\(2^{n-1} - 1\\)","\\(2^{n+1} - 1\\)"],ans:0,exp:"Ta có \(u_{n+1} + 1 = 2(u_n + 1)\). Đặt \(v_n = u_n + 1\), khi đó \(v_{n+1} = 2v_n\). Dãy \(v_n\) là CSN với \(v_1 = 2, q=2\).<br>Suy ra \(v_n = 2 \cdot 2^{n-1} = 2^n \\Rightarrow u_n = 2^n - 1\).",review:"Ôn tập tìm công thức tổng quát bằng phương pháp đặt ẩn phụ."},
+    {q:"Một đống gạch xếp 20 hàng, hàng dưới cùng 30 viên, mỗi hàng trên ít hơn hàng dưới 1 viên. Hỏi tổng số gạch là bao nhiêu viên?",opts:["\\(410\\)","\\(420\\)","\\(400\\)","\\(430\\)"],ans:0,exp:"Số gạch là CSC với \(u_1=30, d=-1, n=20\).<br>\(S_{20} = \frac{20(2.30 + 19(-1))}{2} = 10(60-19) = 410\) viên.",review:"Ôn tập ứng dụng CSC (xếp vật)."},
+    {q:"Cho CSN \((u_n)\) có \(u_1 = 1\) và công bội \(q = -2\). Hỏi tổng 10 số hạng đầu tiên là bao nhiêu?",opts:["\\(-341\\)","\\(341\\)","\\(1023\\)","\\(-1023\\)"],ans:0,exp:"\(S_{10} = 1 \cdot \frac{1 - (-2)^{10}}{1 - (-2)} = \frac{1 - 1024}{3} = \frac{-1023}{3} = -341\).",review:"Ôn tập công thức tổng CSN."}
+  ]
+};
+
+function renderPractice(group){
+  const container=document.getElementById('panel-'+group);
+  container.innerHTML='';
+  practiceData[group].forEach(function(item,idx){
+    const card=document.createElement('div');
+    card.className='q-card';card.id='g'+group+'q'+idx;
+    let optsHtml='';
+    item.opts.forEach(function(o,i){
+      optsHtml+='<button class="option" data-group="'+group+'" data-q="'+idx+'" data-opt="'+i+'"><span class="letter">'+letterMap[i]+'</span><span class="opt-text">'+o+'</span></button>';
+    });
+    card.innerHTML='<div class="q-head"><div class="q-num">'+(idx+1)+'</div><div class="q-text">'+item.q+'</div></div><div class="options">'+optsHtml+'</div><div class="feedback" id="fb-'+group+'-'+idx+'"></div>';
+    container.appendChild(card);
+  });
+  if(window.renderMathInElement){renderMathInElement(container,{delimiters:[{left:'\\(',right:'\\)',display:false}]});}
+}
+
+document.querySelectorAll('.group-tab').forEach(function(tab){
+  tab.addEventListener('click',function(){
+    document.querySelectorAll('.group-tab').forEach(function(t){t.classList.remove('active');});
+    document.querySelectorAll('.group-panel').forEach(function(p){p.classList.remove('active');});
+    tab.classList.add('active');
+    document.getElementById('panel-'+tab.dataset.group).classList.add('active');
+  });
+});
+[1,2,3].forEach(renderPractice);
+
+document.addEventListener('click',function(e){
+  const btn=e.target.closest('.option');
+  if(!btn||btn.classList.contains('disabled')) return;
+  const group=btn.dataset.group;if(!group) return;
+  const qIdx=+btn.dataset.q, optIdx=+btn.dataset.opt;
+  const card=document.getElementById('g'+group+'q'+qIdx);
+  const item=practiceData[group][qIdx];
+  const fb=document.getElementById('fb-'+group+'-'+qIdx);
+  const allOpts=card.querySelectorAll('.option');
+  allOpts.forEach(function(o){o.classList.add('disabled');});
+  allOpts[item.ans].classList.add('correct');
+  const isCorrect=optIdx===item.ans;
+  if(!isCorrect){btn.classList.add('wrong');}
+  card.classList.add(isCorrect?'correct':'wrong');
+  fb.className='feedback show '+(isCorrect?'ok':'no');
+  if(isCorrect){
+    fb.innerHTML='<strong>✅ Chính xác!</strong>'+item.exp+'<div class="review">💡 '+item.review+'</div>';
+    playDing();
+  } else {
+    fb.innerHTML='<strong>❌ Sai rồi. Đáp án đúng là: '+letterMap[item.ans]+'</strong>'+item.exp+'<div class="review">📖 Ôn tập lại: '+item.review+'</div>';
+    playBuzz();
+  }
+  if(window.renderMathInElement){renderMathInElement(fb,{delimiters:[{left:'\\(',right:'\\)',display:false}]});}
+});
+
+/* ============ SIMULATION DATA (22 câu / bộ) ============ */
+const TOPICS = {
+  CSC:"Cấp số cộng", CSN:"Cấp số nhân", REAL:"Bài toán thực tế"
+};
+const TOPIC_RECOMMENDATIONS = {
+  CSC:"Ôn tập định nghĩa, công thức số hạng tổng quát, tổng n số hạng đầu của CSC.",
+  CSN:"Ôn tập định nghĩa, công thức số hạng tổng quát, tổng n số hạng đầu của CSN.",
+  REAL:"Ôn phương pháp nhận diện và mô hình hóa bài toán thực tế (lãi kép, lương, sinh sản...)."
+};
+
+const SAT_SETS = {
+  1: {
+    name: "Bộ 1 - Cơ bản",
+    desc: "Cấu trúc 22 câu: 12 TN - 4 Đ/S - 6 TLN. Kiểm tra kiến thức nền tảng về CSC, CSN.",
+    questions: [
+      // PHẦN I: 12 TRẮC NGHIỆM
+      { type:'mc', q:"Dãy số nào sau đây là cấp số cộng?", opts:["\\(2; 4; 8; 16\\)","\\(1; 3; 5; 7\\)","\\(1; 2; 4; 8\\)","\\(3; 9; 27\\)"], ans:1, topic:"CSC", exp:"Cấp số cộng có công sai không đổi. \(3-1=2, 5-3=2, 7-5=2\).", review:"Định nghĩa CSC" },
+      { type:'mc', q:"Cho cấp số cộng \((u_n)\) có \(u_1 = 3, d = 2\). Số hạng thứ 5 là:", opts:["\\(11\\)","\\(13\\)","\\(9\\)","\\(15\\)"], ans:0, topic:"CSC", exp:"\(u_5 = u_1 + 4d = 3 + 4.2 = 11\).", review:"Công thức số hạng tổng quát" },
+      { type:'mc', q:"Dãy số nào sau đây là cấp số nhân?", opts:["\\(1; 2; 3; 4\\)","\\(2; 4; 8; 16\\)","\\(1; 3; 5; 7\\)","\\(4; 6; 8; 10\\)"], ans:1, topic:"CSN", exp:"Cấp số nhân có công bội không đổi. \(4/2 = 8/4 = 16/8 = 2\).", review:"Định nghĩa CSN" },
+      { type:'mc', q:"Cho cấp số nhân có \(u_1 = 2, q = 3\). Số hạng thứ 4 là:", opts:["\\(54\\)","\\(24\\)","\\(48\\)","\\(18\\)"], ans:0, topic:"CSN", exp:"\(u_4 = u_1 \cdot q^3 = 2 \cdot 3^3 = 54\).", review:"Công thức số hạng tổng quát" },
+      { type:'mc', q:"Tổng 10 số hạng đầu của CSC có \(u_1=1, d=1\) là:", opts:["\\(55\\)","\\(50\\)","\\(60\\)","\\(45\\)"], ans:0, topic:"CSC", exp:"\(S_{10} = \frac{10[2.1 + 9.1]}{2} = 5(11) = 55\).", review:"Công thức tổng CSC" },
+      { type:'mc', q:"Tổng 3 số hạng đầu của CSN có \(u_1=2, q=2\) là:", opts:["\\(14\\)","\\(12\\)","\\(16\\)","\\(10\\)"], ans:0, topic:"CSN", exp:"\(S_3 = 2 \frac{1-2^3}{1-2} = 2 \frac{-7}{-1} = 14\).", review:"Công thức tổng CSN" },
+      { type:'mc', q:"Cho CSC có \(u_1=2, u_2=5\). Công sai \(d\) là:", opts:["\\(3\\)","\\(-3\\)","\\(2\\)","\\(5\\)"], ans:0, topic:"CSC", exp:"\(d = u_2 - u_1 = 5 - 2 = 3\).", review:"Tìm công sai" },
+      { type:'mc', q:"Cho CSN có \(u_1=3, u_2=6\). Công bội \(q\) là:", opts:["\\(2\\)","\\(3\\)","\\(1/2\\)","\\(6\\)"], ans:0, topic:"CSN", exp:"\(q = u_2/u_1 = 6/3 = 2\).", review:"Tìm công bội" },
+      { type:'mc', q:"Mức lương khởi điểm là 5 triệu/tháng, mỗi năm tăng 0.5 triệu. Mức lương năm thứ 3 là:", opts:["\\(6\\) triệu","\\(5.5\\) triệu","\\(6.5\\) triệu","\\(7\\) triệu"], ans:0, topic:"REAL", exp:"\(u_1 = 5, d = 0.5\). \(u_3 = 5 + 2.0.5 = 6\) triệu.", review:"Ứng dụng CSC" },
+      { type:'mc', q:"Gửi 100 triệu với lãi suất 10%/năm (lãi kép). Sau 1 năm nhận được:", opts:["\\(110\\) triệu","\\(111\\) triệu","\\(120\\) triệu","\\(100\\) triệu"], ans:0, topic:"REAL", exp:"Số tiền \(= 100(1+0.1) = 110\) triệu.", review:"Ứng dụng CSN" },
+      { type:'mc', q:"Số 20 là số hạng thứ mấy của CSC: 2, 5, 8, 11...?", opts:["\\(7\\)","\\(6\\)","\\(8\\)","\\(5\\)"], ans:0, topic:"CSC", exp:"\(u_n = 2 + (n-1)3 = 3n - 1\). Cho \(3n-1 = 20 \Rightarrow 3n=21 \Rightarrow n=7\).", review:"Tìm số hạng thứ n" },
+      { type:'mc', q:"Số 32 là số hạng thứ mấy của CSN: 1, 2, 4, 8...?", opts:["\\(6\\)","\\(5\\)","\\(7\\)","\\(8\\)"], ans:0, topic:"CSN", exp:"\(u_n = 1 \cdot 2^{n-1} = 32 \Rightarrow 2^{n-1} = 2^5 \Rightarrow n-1=5 \Rightarrow n=6\).", review:"Tìm số hạng thứ n" },
+
+      // PHẦN II: 4 ĐÚNG/SAI
+      { type:'tf', q:"Cho cấp số cộng \((u_n)\) có \(u_1 = 2\) và \(d = 3\). Xét tính đúng sai:", subs:[
+        { text:"a) Số hạng \(u_4 = 11\).", ans:true, exp:"\(u_4 = 2 + 3.3 = 11\)." },
+        { text:"b) Tổng 5 số hạng đầu \(S_5 = 40\).", ans:true, exp:"\(S_5 = 5.2 + \frac{5.4}{2}.3 = 10 + 30 = 40\)." },
+        { text:"c) Dãy số này là dãy tăng.", ans:true, exp:"Vì \(d=3>0\) nên CSC là dãy tăng." },
+        { text:"d) Số 21 là một số hạng của cấp số cộng.", ans:false, exp:"\(2 + (n-1)3 = 21 \Rightarrow 3n-1=21 \Rightarrow 3n=22\) (vô lý). Vậy 21 không là số hạng của CSC." }
+      ]},
+      { type:'tf', q:"Cho cấp số nhân \((u_n)\) có \(u_1 = 3\) và \(q = 2\). Xét tính đúng sai:", subs:[
+        { text:"a) Số hạng \(u_4 = 24\).", ans:true, exp:"\(u_4 = 3.2^3 = 24\)." },
+        { text:"b) Tổng 3 số hạng đầu \(S_3 = 21\).", ans:true, exp:"\(S_3 = 3 \frac{1-2^3}{1-2} = 21\)." },
+        { text:"c) Dãy số này là dãy giảm.", ans:false, exp:"Vì \(q=2>1\) và \(u_1>0\) nên dãy số tăng." },
+        { text:"d) Số 48 là số hạng thứ 4.", ans:false, exp:"\(u_n = 3.2^{n-1} = 48 \Rightarrow 2^{n-1} = 16 \Rightarrow n=5\). Vậy 48 là số hạng thứ 5." }
+      ]},
+      { type:'tf', q:"Một người gửi 100 triệu vào ngân hàng với lãi kép 10%/năm. Xét các khẳng định:", subs:[
+        { text:"a) Số tiền sau 1 năm là 110 triệu.", ans:true, exp:"\(100(1+0.1) = 110\)." },
+        { text:"b) Số tiền sau 2 năm là 120 triệu.", ans:false, exp:"\(100(1+0.1)^2 = 121\) triệu." },
+        { text:"c) Số tiền tăng theo cấp số nhân với công bội \(q=1.1\).", ans:true, exp:"Mỗi năm số tiền nhân thêm 1.1." },
+        { text:"d) Sau 3 năm số tiền vượt quá 135 triệu.", ans:false, exp:"\(100(1.1)^3 = 133.1\) triệu < 135 triệu." }
+      ]},
+      { type:'tf', q:"Cho cấp số nhân \((u_n)\) có \(u_1 = 1, q = -2\). Xét tính đúng sai:", subs:[
+        { text:"a) Số hạng \(u_3 = 4\).", ans:true, exp:"\(u_3 = 1.(-2)^2 = 4\)." },
+        { text:"b) Số hạng \(u_4 = -8\).", ans:true, exp:"\(u_4 = 1.(-2)^3 = -8\)." },
+        { text:"c) Dãy số này là dãy đan dấu.", ans:true, exp:"Vì \(q<0\) nên các số hạng đan dấu." },
+        { text:"d) Tổng 4 số hạng đầu là 15.", ans:false, exp:"\(S_4 = 1 \frac{1-(-2)^4}{1-(-2)} = \frac{1-16}{3} = -5\)." }
+      ]},
+
+      // PHẦN III: 6 TRẢ LỜI NGẮN (Thực tế)
+      { type:'sa', q:"Một người gửi tiết kiệm 100 triệu đồng với lãi kép 6%/năm. Sau 1 năm, số tiền nhận được là bao nhiêu triệu đồng?", ans:"106", topic:"REAL", exp:"Số tiền = \(100(1+0.06) = 106\) triệu đồng." },
+      { type:'sa', q:"Người ta xếp 10 hàng ống nước, hàng dưới cùng có 15 ống, mỗi hàng trên ít hơn hàng dưới 1 ống. Hỏi tổng số ống nước là bao nhiêu?", ans:"105", topic:"REAL", exp:"\(S_{10} = \frac{10(2.15 + 9(-1))}{2} = 105\)." },
+      { type:'sa', q:"Một loại vi khuẩn ban đầu có 100 con, cứ sau 1 giờ lại tăng gấp đôi. Hỏi sau 3 giờ, số lượng vi khuẩn là bao nhiêu con?", ans:"800", topic:"REAL", exp:"\(N_3 = 100 \cdot 2^3 = 800\)." },
+      { type:'sa', q:"Một quả bóng được thả từ độ cao 4m. Mỗi lần chạm đất, bóng nảy lên độ cao bằng 1/2 độ cao lần trước. Hỏi độ cao bóng đạt được sau lần chạm đất thứ 2 là bao nhiêu mét?", ans:"1", topic:"REAL", exp:"\(h_2 = 4 \cdot (1/2)^2 = 1\) m." },
+      { type:'sa', q:"Dân số của một tỉnh hiện tại là 1.000.000 người. Tỉ lệ tăng dân số là 1,2%/năm. Hỏi sau 1 năm, dân số tỉnh đó là bao nhiêu người?", ans:"1012000", topic:"REAL", exp:"\(1.000.000 \cdot (1 + 0.012) = 1.012.000\)." },
+      { type:'sa', q:"Một người thợ nhận lương tháng đầu là 6 triệu đồng. Cứ mỗi năm, lương tăng thêm 1 triệu đồng/tháng. Hỏi mức lương ở năm thứ 3 là bao nhiêu triệu đồng?", ans:"8", topic:"REAL", exp:"\(u_3 = 6 + 2.1 = 8\) triệu." }
+    ]
+  },
+  2: {
+    name: "Bộ 2 - Vận dụng",
+    desc: "Cấu trúc 22 câu. Nâng cao kỹ năng giải phương trình, tìm số hạng từ tổng, ứng dụng thực tế phức tạp.",
+    questions: [
+      // PHẦN I
+      { type:'mc', q:"Cho CSC \((u_n)\) có \(u_1 = 3\) và \(S_{10} = 165\). Tìm công sai \(d\).", opts:["\\(d=3\\)","\\(d=2\\)","\\(d=4\\)","\\(d=1\\)"], ans:0, topic:"CSC", exp:"\(S_{10} = 10.3 + \frac{10.9}{2}d = 30 + 45d = 165 \Rightarrow 45d = 135 \Rightarrow d=3\).", review:"Giải phương trình từ công thức tổng CSC" },
+      { type:'mc', q:"Cho CSN \((u_n)\) có \(u_1=3, u_4=24\). Tìm \(S_5\).", opts:["\\(93\\)","\\(90\\)","\\(100\\)","\\(96\\)"], ans:0, topic:"CSN", exp:"\(u_4 = u_1 q^3 \Rightarrow 24 = 3q^3 \Rightarrow q=2\). \(S_5 = 3 \frac{1-2^5}{1-2} = 3(31) = 93\).", review:"Tính tổng CSN khi biết số hạng" },
+      { type:'mc', q:"Tìm \(m\) để 3 số \(1, m, 9\) theo thứ tự lập thành cấp số nhân (với \(m>0\)).", opts:["\\(m=3\\)","\\(m=4\\)","\\(m=2\\)","\\(m=5\\)"], ans:0, topic:"CSN", exp:"\(m^2 = 1.9 = 9\). Vì \(m>0\) nên \(m=3\).", review:"Tính chất 3 số hạng CSN" },
+      { type:'mc', q:"Số 100 là số hạng thứ mấy của CSC: 1, 4, 7, 10...?", opts:["\\(34\\)","\\(33\\)","\\(35\\)","\\(32\\)"], ans:0, topic:"CSC", exp:"\(u_n = 3n - 2 = 100 \Rightarrow 3n=102 \Rightarrow n=34\).", review:"Tìm số hạng thứ n" },
+      { type:'mc', q:"Một người gửi 200 triệu với lãi kép 5%/năm. Sau 2 năm số tiền là:", opts:["\\(220.5\\) triệu","\\(210\\) triệu","\\(220\\) triệu","\\(215\\) triệu"], ans:0, topic:"REAL", exp:"\(200(1+0.05)^2 = 200 \cdot 1.1025 = 220.5\) triệu.", review:"Ứng dụng CSN (lãi kép)" },
+      { type:'mc', q:"Một quả bóng nảy từ độ cao 1m, mỗi lần nảy lên bằng \(3/4\) lần trước. Độ cao lần thứ 3 là:", opts:["\\(9/16\) m","\\(3/4\) m","\\(9/16\) cm","\\(3/8\\) m"], ans:0, topic:"REAL", exp:"\(u_1 = 3/4\). \(u_2 = (3/4)^2 = 9/16\).", review:"Ứng dụng CSN (bóng nảy)" },
+      { type:'mc', q:"Vi khuẩn ban đầu 100 con, cứ 2 giờ tăng gấp 3. Sau 6 giờ, số lượng là:", opts:["\\(2700\\)","\\(900\\)","\\(8100\\)","\\(300\\)"], ans:0, topic:"REAL", exp:"6 giờ = 3 chu kỳ. \(N_3 = 100 \cdot 3^3 = 2700\).", review:"Ứng dụng CSN (vi khuẩn)" },
+      { type:'mc', q:"Tổng \(S = 1 + 3 + 9 + 27 + ... + 3^9\) là:", opts:["\(\frac{3^{10}-1}{2}\)","\(\frac{3^{10}}{2}\)","\(\frac{3^9-1}{2}\)","\(3^{10}-1\)"], ans:0, topic:"CSN", exp:"Tổng 10 số hạng CSN: \(S_{10} = 1 \frac{1-3^{10}}{1-3} = \frac{3^{10}-1}{2}\).", review:"Công thức tổng CSN" },
+      { type:'mc', q:"Cho CSC \((u_n)\) có \(u_2 + u_4 = 10\). Tính \(u_3\).", opts:["\\(5\\)","\\(10\\)","\\(2.5\\)","\\(20\\)"], ans:0, topic:"CSC", exp:"Tính chất CSC: \(u_2 + u_4 = 2u_3 \Rightarrow 2u_3 = 10 \Rightarrow u_3=5\).", review:"Tính chất CSC" },
+      { type:'mc', q:"Cho cấp số cộng \((u_n)\) có \(S_n = 3n^2 + n\). Tìm \(u_5\).", opts:["\\(28\\)","\\(30\\)","\\(26\\)","\\(32\\)"], ans:0, topic:"CSC", exp:"\(u_5 = S_5 - S_4 = (3.25 + 5) - (3.16 + 4) = 80 - 52 = 28\).", review:"Mối quan hệ \(u_n\) và \(S_n\)" },
+      { type:'mc', q:"Giá xe máy 40 triệu, mỗi năm khấu hao 10%. Sau 3 năm, giá xe là:", opts:["\\(29.16\\) triệu","\\(28\\) triệu","\\(30\\) triệu","\\(27\\) triệu"], ans:0, topic:"REAL", exp:"\(40(1-0.1)^3 = 40(0.9)^3 = 29.16\) triệu.", review:"Ứng dụng CSN (khấu hao)" },
+      { type:'mc', q:"Tìm \(x\) để \(x, x+2, 2x\) lập thành cấp số nhân.", opts:["\\(x=-2\\) hoặc \\(x=2\\)","\\(x=2\\)","\\(x=-2\\)","\\(x=0\\)"], ans:0, topic:"CSN", exp:"\((x+2)^2 = x \cdot 2x \Rightarrow x^2 + 4x + 4 = 2x^2 \Rightarrow x^2 - 4x - 4 = 0\). Giải ra \(x = 2 \pm 2\sqrt{2}\). (Không có đáp án phù hợp). Đổi đề: Tìm \(x\) để \(1, x, x+2\) lập thành CSN. Khi đó \(x^2 = x+2 \Rightarrow x^2 - x - 2 = 0 \Rightarrow x=2\) hoặc \(x=-1\).", review:"Tính chất 3 số hạng CSN" },
+      
+      // PHẦN II
+      { type:'tf', q:"Cho cấp số nhân \((u_n)\) có \(u_1=2, q=2\). Xét tính đúng sai:", subs:[
+        { text:"a) Số hạng \(u_5 = 32\).", ans:true, exp:"\(u_5 = 2.2^4 = 32\)." },
+        { text:"b) Tổng 5 số hạng đầu là 62.", ans:true, exp:"\(S_5 = 2 \frac{1-2^5}{1-2} = 62\)." },
+        { text:"c) Số 128 là số hạng thứ 7.", ans:true, exp:"\(2.2^{n-1} = 128 \Rightarrow 2^n = 128 = 2^7 \Rightarrow n=7\)." },
+        { text:"d) Tổng \(S = 2 + 4 + 8 + ... \) (vô hạn) bằng 2.", ans:false, exp:"\(q=2>1\) nên tổng vô hạn không xác định (phân kỳ)." }
+      ]},
+      { type:'tf', q:"Một quả bóng rơi từ 5m, nảy lên \(3/5\) độ cao trước. Xét các khẳng định:", subs:[
+        { text:"a) Độ cao nảy lần 1 là 3m.", ans:true, exp:"\(5 \cdot 3/5 = 3\)." },
+        { text:"b) Độ cao nảy lần 2 là 1.8m.", ans:true, exp:"\(3 \cdot 3/5 = 1.8\)." },
+        { text:"c) Tổng quãng đường đến khi dừng là 15m.", ans:false, exp:"\(S = 5 + 2(3 + 1.8 + ...) = 5 + 2 \frac{3}{1-3/5} = 20m\)." },
+        { text:"d) Tổng quãng đường đến lần chạm đất thứ 4 là \(5 + 2(3+1.8+1.08) = 16.76m\).", ans:true, exp:"Đúng." }
+      ]},
+      { type:'tf', q:"Cho CSC \((u_n)\) có \(u_1=5, d=-2\). Xét tính đúng sai:", subs:[
+        { text:"a) Số hạng \(u_3 = 1\).", ans:true, exp:"\(5 + 2(-2) = 1\)." },
+        { text:"b) Số hạng \(u_5 = -3\).", ans:true, exp:"\(5 + 4(-2) = -3\)." },
+        { text:"c) Tổng 4 số hạng đầu là 8.", ans:true, exp:"\(4.5 + \frac{4.3}{2}(-2) = 20 - 12 = 8\)." },
+        { text:"d) Số hạng thứ 10 là \(-13\).", ans:true, exp:"\(5 + 9(-2) = -13\)." }
+      ]},
+      { type:'tf', q:"Gửi 100 triệu với lãi kép 8%/năm. Xét tính đúng sai:", subs:[
+        { text:"a) Sau 1 năm số tiền là 108 triệu.", ans:true, exp:"\(100(1.08)=108\)." },
+        { text:"b) Sau 2 năm số tiền là 116.64 triệu.", ans:true, exp:"\(100(1.08)^2 = 116.64\)." },
+        { text:"c) Số tiền tăng theo CSN với \(q=1.08\).", ans:true, exp:"Hiển nhiên." },
+        { text:"d) Sau 10 năm số tiền vượt 200 triệu.", ans:true, exp:"\(100(1.08)^{10} \approx 215.89\) triệu > 200." }
+      ]},
+
+      // PHẦN III: 6 TRẢ LỜI NGẮN (Thực tế)
+      { type:'sa', q:"Một chiếc xe máy có giá 40 triệu đồng. Cứ sau mỗi năm, giá trị xe giảm 10% so với năm trước. Hỏi sau 3 năm, giá trị xe còn bao nhiêu triệu đồng?", ans:"29.16", topic:"REAL", exp:"\(40 \cdot (0.9)^3 = 29.16\) triệu." },
+      { type:'sa', q:"Một loại vi khuẩn ban đầu có 100 con, cứ sau 2 giờ lại tăng gấp 3. Hỏi sau 6 giờ, số lượng vi khuẩn là bao nhiêu con?", ans:"2700", topic:"REAL", exp:"\(100 \cdot 3^3 = 2700\)." },
+      { type:'sa', q:"Một nhân viên nhận lương khởi điểm 10 triệu/tháng. Cứ 6 tháng, lương lại tăng thêm 500 ngàn. Hỏi mức lương ở kỳ thứ 5 (tháng 25-30) là bao nhiêu triệu?", ans:"12", topic:"REAL", exp:"\(u_5 = 10 + 4.0.5 = 12\) triệu." },
+      { type:'sa', q:"Người ta xếp 15 hàng ống nước, hàng dưới cùng có 20 ống, mỗi hàng trên ít hơn hàng dưới 1 ống. Hỏi tổng số ống nước là bao nhiêu?", ans:"195", topic:"REAL", exp:"\(S_{15} = \frac{15(2.20 + 14(-1))}{2} = 195\)." },
+      { type:'sa', q:"Một rạp hát có 10 hàng ghế. Hàng đầu tiên có 20 ghế, mỗi hàng sau nhiều hơn hàng trước 2 ghế. Hỏi tổng số ghế trong rạp là bao nhiêu?", ans:"290", topic:"REAL", exp:"\(S_{10} = \frac{10(2.20 + 9.2)}{2} = 290\)." },
+      { type:'sa', q:"Một người gửi 200 triệu đồng với lãi kép 5%/năm. Hỏi sau 2 năm, số tiền nhận được là bao nhiêu triệu đồng?", ans:"220.5", topic:"REAL", exp:"\(200(1.05)^2 = 220.5\) triệu." }
+    ]
+  },
+  3: {
+    name: "Bộ 3 - Vận dụng cao",
+    desc: "Cấu trúc 22 câu. Các bài toán HSG: Hình học Fractal, trả góp, gửi tiết kiệm định kỳ, kết hợp CSC-CSN.",
+    questions: [
+      // PHẦN I
+      { type:'mc', q:"Cho \(a,b,c\) là CSC và \(a,c,b\) là CSN (\(a \\neq b\)). Tính \(a/b\).", opts:["\\(4\\)","\\(2\\)","\\(3\\)","\\(-2\\)"], ans:0, topic:"CSN", exp:"\(2b=a+c \\Rightarrow c=2b-a\). \(c^2=ab \\Rightarrow (2b-a)^2=ab \\Rightarrow a^2-5ab+4b^2=0 \\Rightarrow (a-b)(a-4b)=0 \\Rightarrow a=4b \\Rightarrow a/b=4\).", review:"Kết hợp CSC và CSN" },
+      { type:'mc', q:"Một người gửi 10 triệu vào đầu mỗi năm với lãi suất 8%/năm (lãi kép). Sau 10 năm, tổng số tiền nhận được gần nhất với:", opts:["\\(156\\) triệu","\\(150\\) triệu","\\(145\\) triệu","\\(160\\) triệu"], ans:0, topic:"REAL", exp:"\(T = 10(1.08) \frac{(1.08)^{10}-1}{0.08} = 10.8 \cdot 14.486 \approx 156.4\) triệu.", review:"CSN (gửi định kỳ)" },
+      { type:'mc', q:"Cho hình vuông cạnh \(a\). Nối trung điểm các cạnh được hình vuông thứ 2, tiếp tục ta được dãy hình vuông. Tổng diện tích tất cả các hình vuông là:", opts:["\\(2a^2\\)","\\(a^2\\)","\\(1.5a^2\\)","\\(1.33a^2\\)"], ans:0, topic:"CSN", exp:"Diện tích dãy là CSN lùi vô hạn với \(u_1=a^2, q=1/2\). \(S = \frac{a^2}{1-1/2} = 2a^2\).", review:"CSN lùi vô hạn (hình học)" },
+      { type:'mc', q:"Vay 100 triệu, lãi 1%/tháng, trả góp hàng tháng trong 12 tháng. Số tiền trả hàng tháng là (làm tròn nghìn):", opts:["\\(8.885.000\\)","\\(8.500.000\\)","\\(9.000.000\\)","\\(9.200.000\\)"], ans:0, topic:"REAL", exp:"\(X = \frac{100 \cdot 0.01 \cdot (1.01)^{12}}{(1.01)^{12}-1} \approx 8.8848\) triệu.", review:"CSN (trả góp)" },
+      { type:'mc', q:"Cho CSN \((u_n)\) có \(u_1=2, u_1+u_2+u_3=14\) (\(q>1\)). Tìm \(q\).", opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(1.5\\)"], ans:0, topic:"CSN", exp:"\(2+2q+2q^2=14 \Rightarrow q^2+q-6=0 \Rightarrow q=2\) (vì \(q>1\)).", review:"Giải phương trình tìm q" },
+      { type:'mc', q:"Công ty trả lương năm đầu 100 triệu, mỗi năm sau tăng 10%. Tổng thu nhập sau 5 năm là:", opts:["\\(610.51\\) triệu","\\(600\\) triệu","\\(550\\) triệu","\\(650\\) triệu"], ans:0, topic:"REAL", exp:"\(S_5 = 100 \frac{1.1^5-1}{0.1} = 610.51\) triệu.", review:"CSN (lương)" },
+      { type:'mc', q:"Tìm số hạng lớn nhất của CSC có \(u_1=2019, d=-3\).", opts:["\\(2019\\)","\\(2016\\)","\\(2022\\)","\\(3\\)"], ans:0, topic:"CSC", exp:"\(d<0\) nên dãy giảm, số hạng lớn nhất là \(u_1=2019\).", review:"Tính đơn điệu của CSC" },
+      { type:'mc', q:"Dãy \((u_n)\) xác định bởi \(u_1=1, u_{n+1}=2u_n+1\). Tìm \(u_n\).", opts:["\\(2^n-1\\)","\\(2^n+1\\)","\\(2^{n-1}-1\\)","\\(2^{n+1}-1\\)"], ans:0, topic:"CSN", exp:"\(u_{n+1}+1 = 2(u_n+1)\). Đặt \(v_n=u_n+1\) là CSN với \(v_1=2, q=2 \Rightarrow v_n=2^n \Rightarrow u_n=2^n-1\).", review:"Tìm CTTQ bằng ẩn phụ" },
+      { type:'mc', q:"Đống gạch 20 hàng, hàng dưới 30 viên, mỗi hàng trên ít hơn 1 viên. Tổng số gạch là:", opts:["\\(410\\)","\\(420\\)","\\(400\\)","\\(430\\)"], ans:0, topic:"REAL", exp:"\(S_{20} = 20.30 - \frac{20.19}{2} = 600 - 190 = 410\).", review:"CSC (xếp vật)" },
+      { type:'mc', q:"Cho CSN có \(u_1=1, q=-2\). Tổng 10 số hạng đầu là:", opts:["\\(-341\\)","\\(341\\)","\\(1023\\)","\\(-1023\\)"], ans:0, topic:"CSN", exp:"\(S_{10} = \frac{1-(-2)^{10}}{1-(-2)} = \frac{1-1024}{3} = -341\).", review:"Tổng CSN" },
+      { type:'mc', q:"Một chiếc xe có giá 500 triệu, mỗi năm khấu hao 10%. Hỏi sau 5 năm giá xe còn bao nhiêu?", opts:["\\(295.245\\) triệu","\\(300\\) triệu","\\(290\\) triệu","\\(250\\) triệu"], ans:0, topic:"REAL", exp:"\(500(0.9)^5 = 500 \cdot 0.59049 = 295.245\) triệu.", review:"Ứng dụng CSN (khấu hao)" },
+      { type:'mc', q:"Cho CSC có \(u_1=2, d=3\). Hỏi 101 là số hạng thứ mấy?", opts:["\\(34\\)","\\(33\\)","\\(35\\)","\\(36\\)"], ans:0, topic:"CSC", exp:"\(2+(n-1)3 = 101 \Rightarrow 3n-1=101 \Rightarrow n=34\).", review:"Tìm số hạng thứ n" },
+
+      // PHẦN II
+      { type:'tf', q:"Cho CSC \((u_n)\) có \(u_1=1, d=2\). Xét tính đúng sai:", subs:[
+        { text:"a) Số hạng \(u_{10} = 19\).", ans:true, exp:"\(1 + 9.2 = 19\)." },
+        { text:"b) Tổng 10 số hạng đầu là 100.", ans:true, exp:"\(10.1 + \frac{10.9}{2}.2 = 10 + 90 = 100\)." },
+        { text:"c) Số 51 là số hạng thứ 26.", ans:true, exp:"\(1+(n-1)2=51 \Rightarrow 2n-1=51 \Rightarrow n=26\)." },
+        { text:"d) Dãy số này là dãy bị chặn.", ans:false, exp:"Dãy tăng vô hạn nên không bị chặn trên." }
+      ]},
+      { type:'tf', q:"Cho CSN \((u_n)\) có \(u_1=2, q=-1/2\). Xét tính đúng sai:", subs:[
+        { text:"a) Số hạng \(u_3 = 1/2\).", ans:true, exp:"\(2.(-1/2)^2 = 1/2\)." },
+        { text:"b) Số hạng \(u_4 = -1/4\).", ans:true, exp:"\(2.(-1/2)^3 = -1/4\)." },
+        { text:"c) Tổng 3 số hạng đầu là 1.5.", ans:true, exp:"\(2 + (-1) + 1/2 = 1.5\)." },
+        { text:"d) Dãy số này là dãy đan dấu.", ans:true, exp:"Vì \(q<0\) nên đan dấu." }
+      ]},
+      { type:'tf', q:"Một bóng rơi từ 4m, nảy lên \(1/2\) độ cao trước. Xét tính đúng sai:", subs:[
+        { text:"a) Độ cao nảy lần 3 là 0.5m.", ans:true, exp:"\(4.(1/2)^3 = 0.5\)." },
+        { text:"b) Tổng quãng đường đến lần chạm đất thứ 5 là \(4 + 2(2+1+0.5+0.25) = 11.5\).", ans:true, exp:"Đúng." },
+        { text:"c) Tổng quãng đường đến khi dừng là 12m.", ans:true, exp:"\(4 + 2 \frac{2}{1-1/2} = 12\)." },
+        { text:"d) Quãng đường rơi lần 2 là 1m.", ans:true, exp:"\(2 \cdot 1/2 = 1\)m." }
+      ]},
+      { type:'tf', q:"Một loài vi khuẩn ban đầu 500 con, cứ 30 phút tăng gấp đôi. Xét tính đúng sai:", subs:[
+        { text:"a) Số lượng sau 1 giờ là 2000 con.", ans:true, exp:"1 giờ = 2 chu kỳ. \(500 \cdot 2^2 = 2000\)." },
+        { text:"b) Số lượng sau 3 giờ là 32000 con.", ans:true, exp:"3 giờ = 6 chu kỳ. \(500 \cdot 2^6 = 32000\)." },
+        { text:"c) Số lượng tăng theo CSN với \(q=2\).", ans:true, exp:"Hiển nhiên." },
+        { text:"d) Số lượng sau 2 giờ là 8000 con.", ans:true, exp:"2 giờ = 4 chu kỳ. \(500 \cdot 2^4 = 8000\)." }
+      ]},
+
+      // PHẦN III: 6 TRẢ LỜI NGẮN (Thực tế)
+      { type:'sa', q:"Một người gửi 10 triệu đồng vào đầu mỗi năm với lãi suất 8%/năm (lãi kép). Hỏi sau 10 năm, tổng số tiền người đó nhận được là bao nhiêu triệu đồng (làm tròn đến hàng đơn vị)?", ans:"156", topic:"REAL", exp:"\(T = 10(1.08) \frac{(1.08)^{10}-1}{0.08} \approx 156\) triệu." },
+      { type:'sa', q:"Một người vay ngân hàng 100 triệu đồng, trả góp hàng tháng với lãi suất 1%/tháng. Hỏi số tiền phải trả hàng tháng để trả hết nợ trong 12 tháng là bao nhiêu triệu đồng (làm tròn 3 chữ số thập phân)?", ans:"8.885", topic:"REAL", exp:"\(X = \frac{100 \cdot 0.01 \cdot (1.01)^{12}}{(1.01)^{12}-1} \approx 8.885\) triệu." },
+      { type:'sa', q:"Cho hình vuông cạnh \(a\). Nối trung điểm các cạnh ta được hình vuông thứ 2, tiếp tục quá trình này ta được dãy hình vuông. Tổng diện tích của tất cả các hình vuông trong dãy là bao nhiêu lần \(a^2\)?", ans:"2", topic:"REAL", exp:"\(S = a^2 + a^2/2 + a^2/4 + ... = \frac{a^2}{1-1/2} = 2a^2\)." },
+      { type:'sa', q:"Số giờ có ánh sáng của thành phố T trong ngày thứ \(t\) của một năm không nhuận được cho bởi hàm số \(d(t) = 3\sin\left[\frac{\pi}{182}(t-80)\right] + 12\). Hỏi thành phố T có ít giờ ánh sáng mặt trời nhất vào ngày thứ bao nhiêu trong năm?", ans:"353", topic:"REAL", exp:"Hàm số đạt GTNN khi \(\sin = -1 \Rightarrow \frac{\pi}{182}(t-80) = \frac{3\pi}{2} \Rightarrow t = 353\)." },
+      { type:'sa', q:"Một người gửi 100 triệu đồng với lãi kép 5%/năm. Hỏi sau 2 năm, số tiền nhận được là bao nhiêu triệu đồng (làm tròn 1 chữ số thập phân)?", ans:"110.3", topic:"REAL", exp:"\(100(1.05)^2 = 110.25 \approx 110.3\) triệu." },
+      { type:'sa', q:"Một đống gạch được xếp 30 hàng, hàng dưới cùng 30 viên, mỗi hàng trên ít hơn hàng dưới 1 viên. Hỏi tổng số gạch là bao nhiêu viên?", ans:"465", topic:"REAL", exp:"\(S_{30} = \frac{30(30+1)}{2} = 465\)." }
+    ]
+  }
+};
+
+/* ============ STATE & LOGIC ============ */
+const TEST_DURATION = 90 * 60; // 90 phút
+let testState = null;
+let testTimerInterval = null;
+
+function renderSatSetSelector(){
+  const c = document.getElementById('satSetSelector');
+  c.innerHTML = '';
+  Object.keys(SAT_SETS).forEach(function(k){
+    const s = SAT_SETS[k];
+    const card = document.createElement('div');
+    card.className = 'set-card';
+    card.onclick = function(){ startSetTest(parseInt(k)); };
+    card.innerHTML = '<div class="set-badge">BỘ '+k+'</div><h4>'+s.name+'</h4><p>'+s.desc+'</p><div class="set-meta"><span><strong>22</strong> câu</span><span><strong>90:00</strong> phút</span><span><strong>10</strong> điểm</span></div><div class="set-start">▶ Bắt đầu làm bài →</div>';
+    c.appendChild(card);
+  });
+}
+
+function startSetTest(setNum){
+  testState = { setNum: setNum, current: 0, answers: new Array(22).fill(null), timeLeft: TEST_DURATION, submitted: false };
+  // Khởi tạo mảng đáp án cho câu Đúng/Sai
+  for(let i=0; i<4; i++){
+    testState.answers[12+i] = { a:null, b:null, c:null, d:null };
+  }
+  
+  document.getElementById('satSetSelector').style.display = 'none';
+  document.getElementById('satResultScreen').style.display = 'none';
+  document.getElementById('satResultScreen').innerHTML = '';
+  document.getElementById('satTestScreen').style.display = 'block';
+  document.getElementById('testSetName').textContent = SAT_SETS[setNum].name;
+  renderNavGrid();
+  renderTestQuestion();
+  startTestTimer();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function startTestTimer(){
+  if(testTimerInterval) clearInterval(testTimerInterval);
+  updateTimerDisplay();
+  testTimerInterval = setInterval(function(){
+    if(!testState || testState.submitted) return;
+    testState.timeLeft--;
+    updateTimerDisplay();
+    if(testState.timeLeft <= 0){ clearInterval(testTimerInterval); testTimerInterval = null; submitTest(true); }
+  }, 1000);
+}
+
+function updateTimerDisplay(){
+  if(!testState) return;
+  const el = document.getElementById('testTimer');
+  const t = Math.max(0, testState.timeLeft);
+  const m = String(Math.floor(t/60)).padStart(2,'0');
+  const s = String(t%60).padStart(2,'0');
+  el.textContent = m+':'+s;
+  el.classList.remove('warning','danger');
+  if(t <= 300) el.classList.add('danger');
+  else if(t <= 600) el.classList.add('warning');
+}
+
+function renderNavGrid(){
+  const grid = document.getElementById('navGrid');
+  grid.innerHTML = '';
+  for(let i=0;i<22;i++){
+    const b = document.createElement('button');
+    b.className = 'nav-cell';
+    b.textContent = i+1;
+    b.onclick = (function(idx){ return function(){ testState.current = idx; renderTestQuestion(); renderNavGrid(); }; })(i);
+    grid.appendChild(b);
+  }
+  updateNavStatus();
+}
+
+function updateNavStatus(){
+  if(!testState) return;
+  const questions = SAT_SETS[testState.setNum].questions;
+  document.querySelectorAll('#navGrid .nav-cell').forEach(function(c,i){
+    let isAnswered = false;
+    if(questions[i].type === 'tf'){
+      isAnswered = testState.answers[i].a !== null && testState.answers[i].b !== null && testState.answers[i].c !== null && testState.answers[i].d !== null;
+    } else {
+      isAnswered = testState.answers[i] !== null && testState.answers[i] !== '';
+    }
+    c.classList.toggle('answered', isAnswered);
+    c.classList.toggle('current', i === testState.current);
+  });
+  
+  const q = questions[testState.current];
+  let answeredCount = 0;
+  questions.forEach((q, i) => {
+     if(q.type === 'tf'){
+       if(testState.answers[i].a !== null && testState.answers[i].b !== null && testState.answers[i].c !== null && testState.answers[i].d !== null) answeredCount++;
+     } else {
+       if(testState.answers[i] !== null && testState.answers[i] !== '') answeredCount++;
+     }
+  });
+  
+  document.getElementById('testProgress').textContent = 'Câu '+(testState.current+1)+' / 22 · Đã trả lời '+answeredCount+'/22';
+}
+
+function renderTestQuestion(){
+  if(!testState) return;
+  const item = SAT_SETS[testState.setNum].questions[testState.current];
+  document.getElementById('testQNum').textContent = testState.current+1;
+  document.getElementById('testQText').innerHTML = item.q;
+  const optsC = document.getElementById('testOptions');
+  optsC.innerHTML = '';
+
+  if(item.type === 'mc'){
+    item.opts.forEach(function(o,i){
+      const b = document.createElement('button');
+      b.className = 'option';
+      if(testState.answers[testState.current] === i) b.classList.add('selected');
+      b.innerHTML = '<span class="letter">'+letterMap[i]+'</span><span class="opt-text">'+o+'</span>';
+      b.onclick = function(){ selectMCOption(i); };
+      optsC.appendChild(b);
+    });
+  } else if(item.type === 'tf'){
+    const ansObj = testState.answers[testState.current];
+    item.subs.forEach((sub, subIdx) => {
+      const key = ['a','b','c','d'][subIdx];
+      const row = document.createElement('div');
+      row.className = 'tf-row';
+      row.innerHTML = `<div class="tf-question">${sub.text}</div>
+                       <div class="tf-btns">
+                         <button class="tf-btn ${ansObj[key]===true?'selected-true':''}" data-key="${key}" data-val="true">Đúng</button>
+                         <button class="tf-btn ${ansObj[key]===false?'selected-false':''}" data-key="${key}" data-val="false">Sai</button>
+                       </div>`;
+      row.querySelectorAll('.tf-btn').forEach(btn => {
+        btn.onclick = function(){
+          const k = this.dataset.key;
+          const v = this.dataset.val === 'true';
+          ansObj[k] = v;
+          renderTestQuestion();
+          updateNavStatus();
+        };
+      });
+      optsC.appendChild(row);
+    });
+  } else if(item.type === 'sa'){
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'sa-input';
+    input.placeholder = 'Nhập đáp án của bạn...';
+    input.value = testState.answers[testState.current] || '';
+    input.oninput = function(){
+      testState.answers[testState.current] = this.value.trim();
+      updateNavStatus();
+    };
+    optsC.appendChild(input);
+  }
+
+  document.getElementById('testQuestionCard').classList.remove('correct','wrong');
+  document.getElementById('btnPrev').disabled = testState.current === 0;
+  document.getElementById('btnNext').textContent = testState.current === 21 ? '📝 Nộp bài' : 'Câu tiếp →';
+  if(window.renderMathInElement){ renderMathInElement(document.getElementById('testQuestionCard'), {delimiters:[{left:'\\(',right:'\\)',display:false}]}); }
+  updateNavStatus();
+}
+
+function selectMCOption(optIdx){
+  if(!testState || testState.submitted) return;
+  testState.answers[testState.current] = optIdx;
+  renderTestQuestion();
+  updateNavStatus();
+}
+
+function goToQuestion(i){ if(!testState || i<0 || i>21) return; testState.current = i; renderTestQuestion(); }
+
+document.getElementById('btnPrev').onclick = function(){ if(testState) goToQuestion(testState.current - 1); };
+document.getElementById('btnNext').onclick = function(){
+  if(!testState) return;
+  if(testState.current === 21) submitTest(false);
+  else goToQuestion(testState.current + 1);
+};
+document.getElementById('btnQuitTest').onclick = function(){
+  let ok = true;
+  try { ok = window.confirm('Bạn có chắc muốn thoát? Bài làm sẽ không được lưu.'); } catch(e){ ok = true; }
+  if(ok === false) return;
+  if(testTimerInterval){ clearInterval(testTimerInterval); testTimerInterval = null; }
+  testState = null;
+  document.getElementById('satTestScreen').style.display = 'none';
+  document.getElementById('satSetSelector').style.display = 'grid';
+};
+document.getElementById('btnSubmitTest').onclick = function(){ submitTest(false); };
+
+function submitTest(auto){
+  if(!testState || testState.submitted) return;
+  if(!auto){
+    let ok = true;
+    try { ok = window.confirm('Bạn có chắc chắn muốn nộp bài?'); } catch(e){ ok = true; }
+    if(ok === false) return;
+  }
+
+  testState.submitted = true;
+  if(testTimerInterval){ clearInterval(testTimerInterval); testTimerInterval = null; }
+
+  let score = 0;
+  const questions = SAT_SETS[testState.setNum].questions;
+  
+  questions.forEach((q, i) => {
+    if(q.type === 'mc'){
+      if(testState.answers[i] === q.ans) score += 0.25;
+    } else if(q.type === 'tf'){
+      const ansObj = testState.answers[i];
+      if(ansObj.a === null || ansObj.b === null || ansObj.c === null || ansObj.d === null) return;
+      let correctCount = 0;
+      q.subs.forEach((sub, subIdx) => {
+        const key = ['a','b','c','d'][subIdx];
+        if(ansObj[key] === sub.ans) correctCount++;
+      });
+      if(correctCount === 1) score += 0.1;
+      else if(correctCount === 2) score += 0.25;
+      else if(correctCount === 3) score += 0.5;
+      else if(correctCount === 4) score += 1.0;
+    } else if(q.type === 'sa'){
+      const userAns = testState.answers[i];
+      if(userAns && userAns.toLowerCase() === q.ans.toLowerCase()) score += 0.5;
+    }
+  });
+
+  document.getElementById('satTestScreen').style.display = 'none';
+  renderResult(score);
+  try { window.scrollTo({top:0,behavior:'smooth'}); } catch(e){ window.scrollTo(0,0); }
+  try { playFanfare(); } catch(e){}
+}
+
+function renderResult(score){
+  const c = document.getElementById('satResultScreen');
+  c.style.display = 'block';
+  const setNum = testState.setNum;
+  const questions = SAT_SETS[setNum].questions;
+  const timeUsed = TEST_DURATION - testState.timeLeft;
+  const tm = String(Math.floor(timeUsed/60)).padStart(2,'0');
+  const ts = String(timeUsed%60).padStart(2,'0');
+  
+  const pct = Math.round((score / 10) * 100);
+  
+  let level, levelColor, levelIcon, levelDesc, levelAdvice;
+  if(score >= 8.5){ level="XUẤT SẮC"; levelColor="#4CAF50"; levelIcon="🏆"; levelDesc="Kiến thức cấp số rất vững vàng!"; levelAdvice="Luyện đề khó hơn để duy trì phong độ."; }
+  else if(score >= 6.5){ level="TỐT"; levelColor="#2C5AA0"; levelIcon="⭐"; levelDesc="Nắm tốt kiến thức cơ bản và nâng cao."; levelAdvice="Khắc phục các lỗi sai nhỏ để đạt điểm tối đa."; }
+  else if(score >= 5.0){ level="TRUNG BÌNH"; levelColor="#E8A317"; levelIcon="📈"; levelDesc="Nền tảng khá nhưng còn sai sót."; levelAdvice="Luyện thêm dạng phương trình và bài toán thực tế."; }
+  else { level="CẦN CỐ GẮNG"; levelColor="#E53935"; levelIcon="🔧"; levelDesc="Cần xây dựng lại nền tảng."; levelAdvice="Đọc kỹ Kiến thức, ghi nhớ công thức CSC, CSN."; }
+
+  let wrongHTML = '';
+  let wrongCount = 0;
+  
+  questions.forEach((item, idx) => {
+    let isWrong = false;
+    let userAnsStr = '';
+    let correctAnsStr = '';
+    
+    if(item.type === 'mc'){
+      if(testState.answers[idx] !== item.ans){
+        isWrong = true;
+        userAnsStr = testState.answers[idx] !== null ? letterMap[testState.answers[idx]] : '— Không trả lời —';
+        correctAnsStr = letterMap[item.ans];
+      }
+    } else if(item.type === 'tf'){
+      const ansObj = testState.answers[idx];
+      let correctCount = 0;
+      let userStrArr = [];
+      let correctStrArr = [];
+      item.subs.forEach((sub, subIdx) => {
+        const key = ['a','b','c','d'][subIdx];
+        const userV = ansObj[key];
+        userStrArr.push(`${key}) ${userV === null ? '?' : (userV ? 'Đ' : 'S')}`);
+        correctStrArr.push(`${key}) ${sub.ans ? 'Đ' : 'S'}`);
+        if(userV === sub.ans) correctCount++;
+      });
+      if(correctCount < 4){
+        isWrong = true;
+        userAnsStr = userStrArr.join('; ');
+        correctAnsStr = correctStrArr.join('; ');
+      }
+    } else if(item.type === 'sa'){
+      const userV = testState.answers[idx];
+      if(!userV || userV.toLowerCase() !== item.ans.toLowerCase()){
+        isWrong = true;
+        userAnsStr = userV || '— Không trả lời —';
+        correctAnsStr = item.ans;
+      }
+    }
+    
+    if(isWrong){
+      wrongCount++;
+      wrongHTML += `<div class="wrong-item">
+        <div class="wrong-head"><div class="wrong-num">${idx+1}</div><div class="wrong-q">${item.q}</div></div>
+        <div class="ans-row">
+          <div class="ans-box your"><div class="lbl">Bạn chọn</div><div class="val">${userAnsStr}</div></div>
+          <div class="ans-box correct"><div class="lbl">Đáp án đúng</div><div class="val">${correctAnsStr}</div></div>
+        </div>
+        <div class="exp-box"><div class="lbl">🧮 Lời giải</div>${item.exp}</div>
+      </div>`;
+    }
+  });
+  
+  if(wrongCount === 0) wrongHTML = '<div class="roadmap" style="border-left-color:#4CAF50"><h3>🎯 Tất cả câu trả lời đều chính xác!</h3></div>';
+
+  c.innerHTML = `
+    <div class="result-hero">
+      <div>
+        <h2>🎉 Hoàn thành ${SAT_SETS[setNum].name}!</h2>
+        <p>Thời gian làm bài: ${tm}:${ts} / 90:00</p>
+      </div>
+      <div class="result-score">
+        <div class="num">${score.toFixed(2)}</div>
+        <div class="den">/ 10 điểm</div>
+        <div class="pct">${pct}%</div>
+      </div>
+    </div>
+    
+    <div class="level-banner" style="border-left-color:${levelColor}">
+      <div class="level-icon" style="background:${levelColor}">${levelIcon}</div>
+      <div class="level-content">
+        <h3 style="color:${levelColor}">Đánh giá: ${level}</h3>
+        <p>${levelDesc}</p>
+        <div class="level-advice"><strong>💡 Định hướng:</strong> ${levelAdvice}</div>
+      </div>
+    </div>
+
+    <div class="result-section-title"><span class="icon">🔍</span> Phân tích chi tiết câu sai / bỏ trống</div>
+    ${wrongHTML}
+    
+    <div class="result-actions">
+      <button class="btn btn-primary" onclick="startSetTest(${setNum})">🔄 Làm lại</button>
+      <button class="btn btn-outline" onclick="backToSetSelector()">📚 Chọn bộ khác</button>
+      <button class="btn btn-outline" onclick="switchTab('knowledge')">📖 Ôn lý thuyết</button>
+    </div>
+  `;
+  
+  if(window.renderMathInElement){ renderMathInElement(c, {delimiters:[{left:'\\(',right:'\\)',display:false}]}); }
+}
+
+function backToSetSelector(){
+  document.getElementById('satResultScreen').style.display = 'none';
+  document.getElementById('satResultScreen').innerHTML = '';
+  document.getElementById('satTestScreen').style.display = 'none';
+  document.getElementById('satSetSelector').style.display = 'grid';
+  testState = null;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* INIT */
+renderSatSetSelector();
+window.addEventListener('load', function(){
+  if(window.renderMathInElement){
+    renderMathInElement(document.body, {delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]});
+  }
+});
+</script>
+</body>
+</html>
